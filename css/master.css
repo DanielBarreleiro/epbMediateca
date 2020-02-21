@@ -29,8 +29,14 @@
   margin-right: 20px;
 }
 section{
-  margin-top: 1%;
+  margin-right: 5%;
 }
 section p{
   margin-top: 5px;
+}
+.left{
+	float: left;
+}
+.right{
+	float: right;
 }
