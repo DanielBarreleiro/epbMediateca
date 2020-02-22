@@ -41,40 +41,103 @@
           <button type="submit" name="button" class="uk-button uk-button-primary">Pesquisar</button>
         </form>
       </div>
-      <!--TOP-->
-      <section class="left" style="margin-left: 5%;">
-        <img class="imgcatalogo" src="img/informatica.svg" alt="tech"></a>
-        <p class="p18">Informática</p>
-      </section>
-      <section class="left">
-        <img class="imgcatalogo" src="img/informatica.svg" alt="tech">
-        <p class="p18">Informática</p>
-      </section>
-      <section class="left">
-        <img class="imgcatalogo" src="img/informatica.svg" alt="tech">
-        <p class="p18">Informática</p>
-      </section>
-      <section class="center">
-        <img class="imgcatalogo" src="img/informatica.svg" alt="tech">
-        <p class="p18">Informática</p>
-      </section>
-      <!--BOTTOM-->
-      <section class="left" style="margin-left: 5%;">
-        <img class="imgcatalogo" src="img/informatica.svg" alt="tech"></a>
-        <p class="p18">Informática</p>
-      </section>
-      <section class="left">
-        <img class="imgcatalogo" src="img/informatica.svg" alt="tech">
-        <p class="p18">Informática</p>
-      </section>
-      <section class="left">
-        <img class="imgcatalogo" src="img/informatica.svg" alt="tech">
-        <p class="p18">Informática</p>
-      </section>
-      <section class="center">
-        <img class="imgcatalogo" src="img/informatica.svg" alt="tech">
-        <p class="p18">Informática</p>
-      </section>
+      <!--START Category items-->
+      <div class="" style="margin-left: 5%;">
+        <section class="itemCategoria">
+          <img class="imgcatalogo" src="img/informatica.svg" alt="tech"></a>
+          <p class="p18">Informática</p>
+        </section>
+        <section class="itemCategoria">
+          <img class="imgcatalogo" src="img/informatica.svg" alt="tech">
+          <p class="p18">Tecnologias Administrativas</p>
+        </section>
+        <section class="itemCategoria">
+          <img class="imgcatalogo" src="img/informatica.svg" alt="tech">
+          <p class="p18">Design Gráfico</p>
+        </section>
+        <section class="itemCategoria">
+          <img class="imgcatalogo" src="img/informatica.svg" alt="tech">
+          <p class="p18">Construção Civil</p>
+        </section>
+        <section class="itemCategoria">
+          <img class="imgcatalogo" src="img/informatica.svg" alt="tech"></a>
+          <p class="p18">Contabilidade e Gestão</p>
+        </section>
+        <span id="seeMore"></span>
+        <style>
+          #more {display: none;}
+        </style>
+        <span id="more">
+        <section class="itemCategoria">
+          <img class="imgcatalogo" src="img/informatica.svg" alt="tech">
+          <p class="p18">Biologia</p>
+        </section>
+        <section class="itemCategoria">
+          <img class="imgcatalogo" src="img/informatica.svg" alt="tech">
+          <p class="p18">Direito</p>
+        </section>
+        <section class="itemCategoria">
+          <img class="imgcatalogo" src="img/informatica.svg" alt="tech">
+          <p class="p18">Educação Informação</p>
+        </section>
+        <section class="itemCategoria">
+          <img class="imgcatalogo" src="img/informatica.svg" alt="tech">
+          <p class="p18">Electrónica</p>
+        </section>
+        <section class="itemCategoria">
+          <img class="imgcatalogo" src="img/informatica.svg" alt="tech">
+          <p class="p18">Electrónica</p>
+        </section>
+        <section class="itemCategoria">
+          <img class="imgcatalogo" src="img/informatica.svg" alt="tech">
+          <p class="p18">Física-Química</p>
+        </section>
+        <section class="itemCategoria">
+          <img class="imgcatalogo" src="img/informatica.svg" alt="tech">
+          <p class="p18">Francês</p>
+        </section>
+        <section class="itemCategoria">
+          <img class="imgcatalogo" src="img/informatica.svg" alt="tech">
+          <p class="p18">Inglês</p>
+        </section>
+        <section class="itemCategoria">
+          <img class="imgcatalogo" src="img/informatica.svg" alt="tech">
+          <p class="p18">Marketing</p>
+        </section>
+        <section class="itemCategoria">
+          <img class="imgcatalogo" src="img/informatica.svg" alt="tech">
+          <p class="p18">Matemática</p>
+        </section>
+        <section class="itemCategoria">
+          <img class="imgcatalogo" src="img/informatica.svg" alt="tech">
+          <p class="p18">Português</p>
+        </section>
+        </span>
+        <!--END Category items-->
+        <!--START see more button-->
+        <section class="itemCategoria">
+          <script>
+            function showMore() {
+              var seeMore = document.getElementById("seeMore");
+              var moreText = document.getElementById("more");
+              var btnText = document.getElementById("myBtn");
+
+              if (seeMore.style.display === "none") {
+                seeMore.style.display = "inline";
+                btnText.innerHTML = "Ver mais";
+                moreText.style.display = "none";
+              } else {
+                seeMore.style.display = "none";
+                btnText.innerHTML = "Ver menos";
+                moreText.style.display = "inline";
+              }
+            }
+          </script>
+          <button onclick="showMore()" id="myBtn" class="uk-button uk-button-primary itemCategoriaButton" >Ver mais</button>
+        </section>
+        <!--END see more button-->
+      </div>
+      <!--END Category-->
     </div>
     <div class="catalogo uk-align-right">
       <hr class="top">
