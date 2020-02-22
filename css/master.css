@@ -23,7 +23,6 @@
 .sidebar{
     padding: 20px 0px 0px 50px;
     color: #4cacff;
-    width: 10%;
 }
 .navbar{
   margin-right: 20px;
@@ -34,8 +33,13 @@ section{
 section p{
   margin-top: 5px;
 }
-.left{
+.itemCategoria{
 	float: left;
+}
+.itemCategoriaButton{
+  margin-top: 55%;
+  margin-left: 50%;
+  width: max-content;
 }
 .right{
 	float: right;
