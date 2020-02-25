@@ -6,6 +6,7 @@
 .sidetop{
   border-top: 3.5px solid #4cacff;
   margin-bottom: -10px;
+  width: 120%;
 }
 .p18{
   font-size: 18px;
@@ -19,10 +20,11 @@
 }
 .imgcatalogo{
   height: 200px;
+  width: 263px;
 }
 .sidebar{
-    padding: 20px 0px 0px 50px;
-    color: #4cacff;
+  padding: 20px 0px 0px 50px;
+  color: #4cacff;
 }
 .navbar{
   margin-right: 20px;
@@ -43,4 +45,26 @@ section p{
 }
 .right{
 	float: right;
+}
+footer{
+  margin-top: 5%;
+  padding: 2.5% 0;
+  height: auto;
+  width: 100%;
+  background-color: #e0e0e0;
+  position: absolute;
+  bottom: 0;
+}
+/*LOGIN*/
+.login{
+  padding: 20px 0px;
+  min-width: 90%;
+  color: #4cacff;
+  padding-right: 2%;
+}
+.loginform{
+  background-color: #f3f3f3;
+  width: 20%;
+  margin-left: 20%;
+  padding: 2%;
 }
