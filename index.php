@@ -40,6 +40,7 @@
             <input id="catInput" class="uk-search-input" type="search" placeholder="Pesquisar...">
           </div>
           <button type="submit" name="button" class="uk-button uk-button-primary" onclick="catSearch()" >Pesquisar</button>
+          <button type="submit" name="button" class="uk-button uk-button-secondary" onclick="catClear()" >Limpar Filtros</button>
         </div>
       </div>
       <!--START Category items-->
@@ -130,7 +131,38 @@
         <!--START script botão para pesquisa de categorias-->
         <script>
           function catSearch() {
-            showMore();
+            if (seeMore.style.display != "none") {
+              showMore();
+            }
+            var input, filter, div, section, p, i, txtValue;
+            input = document.getElementById("catInput");
+            filter = input.value.toUpperCase();
+            div = document.getElementById("catDiv");
+            section = div.getElementsByTagName("section");
+            for (i = 0; i < section.length; i++) {
+              p = section[i].getElementsByTagName("p")[0];
+              txtValue = p.innerText;
+              if (txtValue.toUpperCase().indexOf(filter) > -1) {
+                section[i].style.display = "";
+              } else {
+                section[i].style.display = "none";
+              }
+            }
+          }
+        </script>
+        <!--END script botão para pesquisa de categorias-->
+        <!--START script botão para limpar filtros | dificuldade-->
+        <script>
+          function catClear() {
+            document.getElementById("catInput").value = '';
+            var seeMore = document.getElementById("seeMore");
+            var moreText = document.getElementById("more");
+            var btnText = document.getElementById("myBtn");
+            if (seeMore.style.display === "none") {
+              seeMore.style.display = "inline";
+              btnText.innerHTML = "Ver mais";
+              moreText.style.display = "none";
+            }
             var input, filter, div, section, p, i, txtValue;
             input = document.getElementById("catInput");
             filter = input.value.toUpperCase();
@@ -147,7 +179,7 @@
             }
           }
         </script>
-        <!--END script botão para pesquisa de categorias-->
+        <!--END script botão para limpar filtros-->
       </div>
       <!--END Category-->
     </div>
