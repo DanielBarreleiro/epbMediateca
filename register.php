@@ -8,7 +8,6 @@ require 'includes/form_handlers/login_handler.php';
   <head>
     <meta charset="utf-8">
     <title></title>
-    <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="css/uikit.css" rel="stylesheet" />
 	  <link href="css/master.css" rel="stylesheet" />
@@ -38,7 +37,7 @@ require 'includes/form_handlers/login_handler.php';
           <div class="uk-margin">
             <div class="uk-inline">
                 <span class="uk-form-icon" uk-icon="icon: user"></span>
-                <input  type="text" name="reg_fname" class="uk-input" placeholder="Nome Completo" value="<?php
+                <input  type="text" name="reg_fname" class="uk-input" placeholder="Nome Completo" uk-tooltip="title: Nome Nome Apelido; pos: right" value="<?php
                 if (isset($_SESSION['reg_fname'])) {
                   echo $_SESSION['reg_fname'];
                 }
@@ -54,7 +53,7 @@ require 'includes/form_handlers/login_handler.php';
           <div class="uk-margin">
             <div class="uk-inline">
                 <span class="uk-form-icon" uk-icon="icon: mail"></span>
-                <input type="email" name="reg_email" class="uk-input" type="text" placeholder="Email da escola" value="<?php
+                <input type="email" name="reg_email" class="uk-input" type="text" placeholder="Email da escola" uk-tooltip="title: email@alunos.epb.pt; pos: right" value="<?php
                 if (isset($_SESSION['reg_email'])) {
                   echo $_SESSION['reg_email'];
                 }
@@ -69,7 +68,7 @@ require 'includes/form_handlers/login_handler.php';
           <div class="uk-margin">
             <div class="uk-inline">
                 <span class="uk-form-icon" uk-icon="icon: receiver"></span>
-                <input type="number" name="reg_phone" class="uk-input" type="text" placeholder="Nº Telemóvel" value="<?php
+                <input type="number" name="reg_phone" class="uk-input" type="text" placeholder="Nº Telemóvel" uk-tooltip="title: 912345678; pos: right" value="<?php
                 if (isset($_SESSION['reg_phone'])) {
                   echo $_SESSION['reg_phone'];
                 }
@@ -83,16 +82,16 @@ require 'includes/form_handlers/login_handler.php';
           <div class="uk-margin">
               <div class="uk-inline">
                   <span class="uk-form-icon" uk-icon="icon: lock"></span>
-                  <input class="uk-input" type="password" placeholder="Palavra-passe" name="reg_password" required>
+                  <input class="uk-input" type="password" placeholder="Palavra-passe" name="reg_password" uk-tooltip="title: Tem de ter no mínimo 5 caracteres, uma letra maiúscula e um número!; pos: right" required>
                   <br>
-                  <?php if (in_array("A password tem de ter no mínimo uma letra maúscula e um número!!<br>", $error_array)) {echo "A password tem de ter no mínimo uma letra maúscula e um número!!<br>";}
-                  else if (in_array("A password tem de ter entre 5 e 50 caracteres<br>", $error_array)) {echo "A password tem de ter entre 5 e 50 caracteres<br>";} ?>
+                  <?php if (in_array("<script>('A password tem de ter no mínimo uma letra maúscula e um número!!')</script>", $error_array)) {echo "<script>('A password tem de ter no mínimo uma letra maúscula e um número!!')</script>";}
+                  else if (in_array("<script>alert('A password tem de ter entre 5 e 50 caracteres')</script>", $error_array)) {echo "<script>alert('A password tem de ter entre 5 e 50 caracteres')</script>";} ?>
               </div>
           </div>
           <!--END password-->
           <input class="uk-button uk-button-default uk-button-primary" type="submit" name="register_button" value="Registar">
         </form>
-        <p><a href="#">Esqueceu-se da palavra-passe?</a></p>
+        <p>Já tens conta? Faz login <a href="login.php">aqui</a></p>
       </div>
     </div>
   </body>

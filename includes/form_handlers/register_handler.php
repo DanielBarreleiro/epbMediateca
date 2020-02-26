@@ -73,12 +73,12 @@ if(isset($_POST['register_button'])) {
   }
 
   if ( !preg_match('/[A-Za-z].*[0-9]|[0-9].*[A-Za-z]/', $password)){
-    echo 'A password tem de ter no mínimo uma letra maúscula e um número!!<br>';
+    echo "<script>('A password tem de ter no mínimo uma letra maúscula e um número!!')</script>";
   }
 
 
   if(strlen($password) > 50 || strlen($password) < 5) {
-    array_push($error_array, "A password tem de ter entre 5 e 50 caracteres<br>");
+    array_push($error_array, "<script>alert('A password tem de ter entre 5 e 50 caracteres')</script>");
   }
 
   if (empty($error_array)) {

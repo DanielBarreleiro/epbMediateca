@@ -18,6 +18,7 @@
       <ul class="uk-navbar-nav">
         <li class="uk-active navbar"><a href="index.php">PÁGINA INICIAL</a></li>
         <li class="navbar"><a href="login.php"> LOGIN </a></li>
+        <li class="navbar"><a href="register.php"> REGISTAR </a></li>
       </ul>
     </div>
   </nav>
@@ -33,35 +34,35 @@
       <hr class="top">
       <p class="p18" >Catálogo</p>
       <div class="uk-margin">
-        <form class="uk-search uk-search-default" method="post">
+        <div class="uk-search uk-search-default">
           <div class="uk-search">
             <span uk-search-icon></span>
-            <input class="uk-search-input" type="search" placeholder="Pesquisar...">
+            <input id="catInput" class="uk-search-input" type="search" placeholder="Pesquisar...">
           </div>
-          <button type="submit" name="button" class="uk-button uk-button-primary">Pesquisar</button>
-        </form>
+          <button type="submit" name="button" class="uk-button uk-button-primary" onclick="catSearch()" >Pesquisar</button>
+        </div>
       </div>
       <!--START Category items-->
-      <div class="" style="margin-left: 5%;">
+      <div id="catDiv" style="margin-left: 5%;">
         <section class="itemCategoria">
-          <img class="imgcatalogo" src="img/informatica.svg" alt="tech"></a>
-          <p class="p18">Informática</p>
+          <a href="#"><img class="imgcatalogo" src="img/informatica.svg" alt="tech">
+          <p class="p18">Informática</p></a>
         </section>
         <section class="itemCategoria">
-          <img class="imgcatalogo" src="img/notfound.svg" alt="tech">
-          <p class="p18">Tecnologias Administrativas</p>
+          <a href="#"><img class="imgcatalogo" src="img/notfound.svg" alt="tech">
+          <p class="p18">Tecnologias Administrativas</p></a>
         </section>
         <section class="itemCategoria">
-          <img class="imgcatalogo" src="img/design.svg" alt="tech">
-          <p class="p18">Design Gráfico</p>
+          <a href="#"><img class="imgcatalogo" src="img/design.svg" alt="tech">
+          <p class="p18">Design Gráfico</p></a>
         </section>
         <section class="itemCategoria">
-          <img class="imgcatalogo" src="img/construcao_civil.svg" alt="tech">
-          <p class="p18">Construção Civil</p>
+          <a href="#"><img class="imgcatalogo" src="img/construcao_civil.svg" alt="tech">
+          <p class="p18">Construção Civil</p></a>
         </section>
         <section class="itemCategoria">
-          <img class="imgcatalogo" src="img/contabilidade_gestao.svg" alt="tech"></a>
-          <p class="p18">Contabilidade e Gestão</p>
+          <a href="#"><img class="imgcatalogo" src="img/contabilidade_gestao.svg" alt="tech">
+          <p class="p18">Contabilidade e Gestão</p></a>
         </section>
         <span id="seeMore"></span>
         <style>
@@ -69,41 +70,42 @@
         </style>
         <span id="more">
         <section class="itemCategoria">
-          <img class="imgcatalogo" src="img/biologia.svg" alt="tech">
-          <p class="p18">Biologia</p>
+          <a href="#"><img class="imgcatalogo" src="img/biologia.svg" alt="tech">
+          <p class="p18">Biologia</p></a>
         </section>
         <section class="itemCategoria">
-          <img class="imgcatalogo" src="img/direito.svg" alt="tech">
-          <p class="p18">Direito</p>
+          <a href="#"><img class="imgcatalogo" src="img/direito.svg" alt="tech">
+          <p class="p18">Direito</p></a>
         </section>
         <section class="itemCategoria">
-          <img class="imgcatalogo" src="img/notfound.svg" alt="tech">
-          <p class="p18">Educação Informação</p>
+          <a href="#"><img class="imgcatalogo" src="img/notfound.svg" alt="tech">
+          <p class="p18">Educação Informação</p></a>
         </section>
         <section class="itemCategoria">
-          <img class="imgcatalogo" src="img/eletronica.svg" alt="tech">
-          <p class="p18">Eletrónica</p>
+          <a href="#"><img class="imgcatalogo" src="img/eletronica.svg" alt="tech">
+          <p class="p18">Eletrónica</p></a>
         </section>
         <section class="itemCategoria">
-          <img class="imgcatalogo" src="img/fisica_quimica.svg" alt="tech">
-          <p class="p18">Física-Química</p>
+          <a href="#"><img class="imgcatalogo" src="img/fisica_quimica.svg" alt="tech">
+          <p class="p18">Física-Química</p></a>
         </section>
         <section class="itemCategoria">
-          <img class="imgcatalogo" src="img/linguas.svg" alt="tech">
-          <p class="p18">Línguas</p>
+          <a href="#"><img class="imgcatalogo" src="img/linguas.svg" alt="tech">
+          <p class="p18">Línguas</p></a>
         </section>
         <section class="itemCategoria">
-          <img class="imgcatalogo" src="img/marketing.svg" alt="tech">
-          <p class="p18">Marketing</p>
+          <a href="#"><img class="imgcatalogo" src="img/marketing.svg" alt="tech">
+          <p class="p18">Marketing</p></a>
         </section>
         <section class="itemCategoria">
-          <img class="imgcatalogo" src="img/matematica.svg" alt="tech">
-          <p class="p18">Matemática</p>
+          <a href="#"><img class="imgcatalogo" src="img/matematica.svg" alt="tech">
+          <p class="p18">Matemática</p></a>
         </section>
         </span>
         <!--END Category items-->
         <!--START see more button-->
         <section class="itemCategoria">
+          <!--START script para botão "mostrar mais"/"mostrar menos"-->
           <script>
             function showMore() {
               var seeMore = document.getElementById("seeMore");
@@ -121,9 +123,31 @@
               }
             }
           </script>
+          <!--END script para botão "mostrar mais"/"mostrar menos"-->
           <button onclick="showMore()" id="myBtn" class="uk-button uk-button-primary itemCategoriaButton" >Ver mais</button>
         </section>
         <!--END see more button-->
+        <!--START script botão para pesquisa de categorias-->
+        <script>
+          function catSearch() {
+            showMore();
+            var input, filter, div, section, p, i, txtValue;
+            input = document.getElementById("catInput");
+            filter = input.value.toUpperCase();
+            div = document.getElementById("catDiv");
+            section = div.getElementsByTagName("section");
+            for (i = 0; i < section.length; i++) {
+              p = section[i].getElementsByTagName("p")[0];
+              txtValue = p.textContent || p.innerText;
+              if (txtValue.toUpperCase().indexOf(filter) > -1) {
+                section[i].style.display = "";
+              } else {
+                section[i].style.display = "none";
+              }
+            }
+          }
+        </script>
+        <!--END script botão para pesquisa de categorias-->
       </div>
       <!--END Category-->
     </div>

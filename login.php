@@ -37,7 +37,7 @@ require 'includes/form_handlers/login_handler.php';
           <div class="uk-margin">
             <div class="uk-inline">
                 <span class="uk-form-icon" uk-icon="icon: mail"></span>
-                <input type="email" name="log_email" class="uk-input" type="text" placeholder="Email da escola"value="<?php
+                <input type="email" name="log_email" class="uk-input" type="text" placeholder="Email da escola" uk-tooltip="title: email@alunos.epb.pt; pos: right" value="<?php
                 if (isset($_SESSION['log_email'])) {
                   echo $_SESSION['log_email'];
                 }
@@ -49,12 +49,13 @@ require 'includes/form_handlers/login_handler.php';
                   <span class="uk-form-icon" uk-icon="icon: lock"></span>
                   <input name="log_password" class="uk-input" type="password" placeholder="Palavra-passe" required>
                   <br>
-                  <?php if (in_array("Email ou password incorretos<br />", $error_array)) echo "Email ou password incorretos<br />"; ?>
+                  <?php if (in_array("<script>alert('Email ou password incorretos')</script>", $error_array)) echo "<script>alert('Email ou password incorretos')</script>"; ?>
               </div>
           </div>
           <input class="uk-button uk-button-default uk-button-primary" type="submit" name="login_button" value="Login">
         </form>
         <p><a href="#">Esqueceu-se da palavra-passe?</a></p>
+        <p>Ainda não tens a tua conta? <a href="register.php">Registar</a></p>
       </div>
     </div>
   </body>
