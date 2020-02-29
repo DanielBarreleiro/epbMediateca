@@ -57,6 +57,7 @@ require 'includes/form_handlers/login_handler.php';
         <p><a href="#">Esqueceu-se da palavra-passe?</a></p>
         <p>Ainda não tens a tua conta? <a href="register.php">Registar</a></p>
       </div>
+      <img class="sideimg" src="img/auth.svg" alt="">
     </div>
   </body>
 </html>

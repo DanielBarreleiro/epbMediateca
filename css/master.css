@@ -68,3 +68,27 @@ footer{
   margin-left: 20%;
   padding: 2%;
 }
+.sideimg{
+  float: right;
+  height: 20%;
+}
+.tlivros{
+  border: 2px solid red;
+  width: 15%;
+}
+.treq{
+  border: 2px solid red;
+  width: 15%;
+}
+.tdev{
+  border: 2px solid red;
+  width: 15%;
+}
+.tpordev{
+  border: 2px solid red;
+  width: 15%;
+}
+.talu{
+  border: 2px solid red;
+  width: 15%;
+}
