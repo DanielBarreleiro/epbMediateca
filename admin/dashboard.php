@@ -26,51 +26,61 @@ require '../config/config.php';
     </div>
   </nav>
   <body>
-    <div uk-grid style="margin-left: 5%;">
-      <div class="tlivros">
-        <span uk-icon="icon: book"></span>
-        <p>Livros</p>
-        <?php
-        $result = mysqli_query($con, "SELECT * FROM tblbooks");
-        $num_rows = mysqli_num_rows($result);
-        echo "<p>$num_rows</p>";
-         ?>
+    <div uk-grid class="admindash">
+      <div class="tlivros dashboardsec">
+        <a href="livros.php">
+          <img class="admindashico" src="../includes/icons/11-Content/02-Books/1024w/book-close-2.png" alt="">
+          <p>Livros</p>
+          <?php
+          $result = mysqli_query($con, "SELECT * FROM tblbooks");
+          $num_rows = mysqli_num_rows($result);
+          echo "<p>$num_rows</p>";
+           ?>
+        </a>
       </div>
-      <div class="treq">
-        <span uk-icon="icon: book"></span>
-        <p>Requisições</p>
-        <?php
-        $result = mysqli_query($con, "SELECT * FROM tblissuedbookdetails");
-        $num_rows = mysqli_num_rows($result);
-        echo "<p>$num_rows</p>";
-         ?>
+      <div class="treq dashboardsec">
+        <a href="#">
+          <img class="admindashico" src="../includes/icons/11-Content/02-Books/1024w/book-upload.png" alt="">
+          <p>Requisições</p>
+          <?php
+          $result = mysqli_query($con, "SELECT * FROM tblissuedbookdetails");
+          $num_rows = mysqli_num_rows($result);
+          echo "<p>$num_rows</p>";
+           ?>
+        </a>
       </div>
-      <div class="tdev">
-        <span uk-icon="icon: book"></span>
-        <p>Devoluções</p>
-        <?php
-        $result = mysqli_query($con, "SELECT * FROM tblissuedbookdetails WHERE ReturnStatus = 0");
-        $num_rows = mysqli_num_rows($result);
-        echo "<p>$num_rows</p>";
-         ?>
+      <div class="tdev dashboardsec">
+        <a href="#">
+          <img class="admindashico" src="../includes/icons/11-Content/02-Books/1024w/book-download.png" alt="">
+          <p>Devoluções</p>
+          <?php
+          $result = mysqli_query($con, "SELECT * FROM tblissuedbookdetails WHERE ReturnStatus = 0");
+          $num_rows = mysqli_num_rows($result);
+          echo "<p>$num_rows</p>";
+           ?>
+        </a>
       </div>
-      <div class="tpordev">
-        <span uk-icon="icon: book"></span>
-        <p>Por Devolver</p>
-        <?php
-        $result = mysqli_query($con, "SELECT * FROM tblissuedbookdetails WHERE ReturnStatus = 1");
-        $num_rows = mysqli_num_rows($result);
-        echo "<p>$num_rows</p>";
-         ?>
+      <div class="tpordev dashboardsec">
+        <a href="#">
+          <img class="admindashico" src="../includes/icons/11-Content/02-Books/1024w/book-warn.png" alt="">
+          <p>Por Devolver</p>
+          <?php
+          $result = mysqli_query($con, "SELECT * FROM tblissuedbookdetails WHERE ReturnStatus = 1");
+          $num_rows = mysqli_num_rows($result);
+          echo "<p>$num_rows</p>";
+           ?>
+        </a>
       </div>
-      <div class="talu">
-        <span uk-icon="icon: book"></span>
-        <p>Alunos Registados</p>
-        <?php
-        $result = mysqli_query($con, "SELECT * FROM tblstudents");
-        $num_rows = mysqli_num_rows($result);
-        echo "<p>$num_rows</p>";
-         ?>
+      <div class="talu dashboardsec">
+        <a href="#">
+          <img class="admindashico" src="../includes/icons/36-School-Learning/04-Library-Reading/1024w/read-human.png" alt="">
+          <p>Alunos Registados</p>
+          <?php
+          $result = mysqli_query($con, "SELECT * FROM tblstudents");
+          $num_rows = mysqli_num_rows($result);
+          echo "<p>$num_rows</p>";
+           ?>
+        </a>
       </div>
     </div>
   </body>

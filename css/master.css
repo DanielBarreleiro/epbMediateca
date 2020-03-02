@@ -73,22 +73,42 @@ footer{
   height: 20%;
 }
 .tlivros{
-  border: 2px solid red;
-  width: 15%;
+  padding: 20px 20px 0px 20px;
+  border-right: 2px solid #4cacff;
+  max-width: 15%;
+  text-align: center;
+  align-content: center;
 }
 .treq{
-  border: 2px solid red;
-  width: 15%;
+  padding: 20px 20px 0px 20px;
+  border-right: 2px solid #4cacff;
+  max-width: 15%;
+  text-align: center;
 }
 .tdev{
-  border: 2px solid red;
-  width: 15%;
+  padding: 20px 20px 0px 20px;
+  border-right: 2px solid #4cacff;
+  max-width: 15%;
+  text-align: center;
 }
 .tpordev{
-  border: 2px solid red;
-  width: 15%;
+  padding: 20px 20px 0px 20px;
+  border-right: 2px solid #4cacff;
+  max-width: 15%;
+  text-align: center;
 }
 .talu{
-  border: 2px solid red;
-  width: 15%;
+  padding: 20px 20px 0px 20px;
+  max-width: 15%;
+  text-align: center;
+}
+.admindash{
+  margin-left: 5%;
+  margin-top: 2.5%;
+}
+.dashboardsec:hover{
+  background-color: #fafafa;
+}
+.admindashico{
+  width: 30%;
 }
