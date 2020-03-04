@@ -1,3 +1,9 @@
+<html>
+  <head>
+    <link href="https://fonts.googleapis.com/css?family=Ubuntu&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9.8.2/dist/sweetalert2.all.min.js"></script>
+    <link rel='stylesheet' href='https://cdn.jsdelivr.net/npm/sweetalert2@9.8.2/dist/sweetalert2.min.css'>
+  </head>
 <?php
 //declaração de variáveis
 $fname = ""; //primeiro nome
@@ -82,14 +88,14 @@ if(isset($_POST['register_button'])) {
   }
 
   if (empty($error_array)) {
-
+    header("Refresh:2; url=index.php");
     //Enviar email de confirmação
-    $em = strip_tags($_POST['reg_email']);
+    /*$em = strip_tags($_POST['reg_email']);
     $to_email_address = $em;
     $subject = "Confirmação de Registo | epbMediateca";
     $message = "A tua conta foi criada com successo!\n Se não criaste conta no site mediateca.epb.pt, clica no botão em baixo.";
     $headers = 'From: webmaster@example.com';
-    mail($to_email_address,$subject,$message,$headers);
+    mail($to_email_address,$subject,$message,$headers);*/
 
     $password = password_hash($password, PASSWORD_BCRYPT);
     //encriptar a password antes de ser enviada para a base de dados, é misturado com SALT automaticamente
@@ -98,8 +104,26 @@ if(isset($_POST['register_button'])) {
 
     //enviar todos os dados para a base de dados
     $query = mysqli_query($con, "INSERT INTO tblstudents (StudentId, FullName, email, phone, password) VALUES ('$studentid', '$fname', '$em', '$phone', '$password')");
-
-    array_push($error_array, "<span style='color: #14C800;'>Foste Registado, $fname! Já podes fazer login!</span><br>");
+    echo "<br>";
+    echo '<script>let timerInterval
+        swal.fire({
+          title: "Foste Registado, já podes fazer login!",
+          icon: "success",
+          html: "Vais ser redirecionado em 2 segundos.",
+          timer: 2000,
+          timerProgressBar: true,
+          onBeforeOpen: () => {
+            swal.showLoading()
+          },
+          onClose: () => {
+            clearInterval(timerInterval)
+          }
+        }).then((result) => {
+          /* Read more about handling dismissals below */
+          if (result.dismiss === swal.DismissReason.timer) {
+            console.log("I was closed by the timer")
+          }
+        })</script>';
 
     //limpar dados da sessão
     $_SESSION['reg_fname'] = "";
@@ -111,3 +135,4 @@ if(isset($_POST['register_button'])) {
 }
 
  ?>
+</html>

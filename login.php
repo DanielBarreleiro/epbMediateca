@@ -15,6 +15,9 @@ require 'includes/form_handlers/login_handler.php';
     <link href="https://fonts.googleapis.com/css?family=Ubuntu&display=swap" rel="stylesheet">
     <script src="js/uikit.js" charset="utf-8"></script>
     <script src="js/uikit-icons.js" charset="utf-8"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
+    <script src="sweetalert2.all.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/promise-polyfill"></script>
   </head>
   <nav class="uk-navbar-container" uk-navbar>
     <div class="uk-navbar-left">

@@ -1,12 +1,9 @@
 <html>
   <head>
-    <link href="css/uikit.css" rel="stylesheet" />
-	  <link href="css/master.css" rel="stylesheet" />
     <link href="https://fonts.googleapis.com/css?family=Ubuntu&display=swap" rel="stylesheet">
-    <script src="js/uikit.js" charset="utf-8"></script>
-    <script src="js/uikit-icons.js" charset="utf-8"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9.8.2/dist/sweetalert2.all.min.js"></script>
+    <link rel='stylesheet' href='https://cdn.jsdelivr.net/npm/sweetalert2@9.8.2/dist/sweetalert2.min.css'>
   </head>
-</html>
 <?php
 
 if (isset($_POST['log_email'])) {
@@ -24,15 +21,55 @@ if (isset($_POST['log_email'])) {
   $username = $usernamerow['FullName'];
 
   if (password_verify($password, $hash)) {
-    header("Refresh:3; url=index.php");
+    header("Refresh:2; url=index.php");
     $_SESSION['username'] = $username;
-    echo "<div class='uk-alert-success' uk-alert><a class='uk-alert-close' uk-close></a><p>Foste logado com sucesso $username ! Vais ser redirecionado em 3 segundos.</p></div>";
-    echo "<br><span uk-spinner='ratio: 2.5'></span>";
+    echo "<br>";
+    echo '<script>let timerInterval
+          swal.fire({
+            title: "Logado com sucesso!",
+            icon: "success",
+            html: "Vais ser redirecionado em 2 segundos.",
+            timer: 2000,
+            timerProgressBar: true,
+            onBeforeOpen: () => {
+              swal.showLoading()
+            },
+            onClose: () => {
+              clearInterval(timerInterval)
+            }
+          }).then((result) => {
+            /* Read more about handling dismissals below */
+            if (result.dismiss === swal.DismissReason.timer) {
+              console.log("I was closed by the timer")
+            }
+          })</script>';
     exit();
   }
   else {
-    array_push($error_array, "<script>alert('Email ou password incorretos')</script>");
+    header("Refresh:2; url=login.php");
+    echo "<br>";
+    echo '<script>let timerInterval
+          swal.fire({
+            title: "A palavra-passe está incorreta!",
+            icon: "error",
+            html: "Vais ser redirecionado em 2 segundos.",
+            timer: 2000,
+            timerProgressBar: true,
+            onBeforeOpen: () => {
+              swal.showLoading()
+            },
+            onClose: () => {
+              clearInterval(timerInterval)
+            }
+          }).then((result) => {
+            /* Read more about handling dismissals below */
+            if (result.dismiss === swal.DismissReason.timer) {
+              console.log("I was closed by the timer")
+            }
+          })</script>';
+    exit();
   }
 }
 
  ?>
+</html>
