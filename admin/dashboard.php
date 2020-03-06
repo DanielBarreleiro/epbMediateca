@@ -26,6 +26,10 @@ require '../config/config.php';
     </div>
   </nav>
   <body>
+    <div class="uk-margin" style="text-align: center">
+      <h2>Admin Dashboard</h2>
+    </div>
+    <hr style="width: 85%;" class="uk-align-center">
     <div uk-grid class="admindash">
       <div class="tlivros dashboardsec">
         <a href="livros.php">
