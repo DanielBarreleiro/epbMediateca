@@ -90,12 +90,7 @@ if(isset($_POST['register_button'])) {
   if (empty($error_array)) {
     header("Refresh:2; url=index.php");
     //Enviar email de confirmação
-    /*$em = strip_tags($_POST['reg_email']);
-    $to_email_address = $em;
-    $subject = "Confirmação de Registo | epbMediateca";
-    $message = "A tua conta foi criada com successo!\n Se não criaste conta no site mediateca.epb.pt, clica no botão em baixo.";
-    $headers = 'From: webmaster@example.com';
-    mail($to_email_address,$subject,$message,$headers);*/
+    require_once 'email.php';
 
     $password = password_hash($password, PASSWORD_BCRYPT);
     //encriptar a password antes de ser enviada para a base de dados, é misturado com SALT automaticamente

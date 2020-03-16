@@ -16,7 +16,7 @@ require '../config/config.php';
   </head>
   <nav class="uk-navbar-container" uk-navbar>
     <div class="uk-navbar-left">
-      <a class="uk-navbar-item uk-logo" href="index.php"><img src="../img/logo.png" width="250"/></a>
+      <a class="uk-navbar-item uk-logo" href="../index.php"><img src="../img/logo.png" width="250"/></a>
     </div>
     <div class="uk-navbar-right">
       <ul class="uk-navbar-nav">
@@ -43,7 +43,7 @@ require '../config/config.php';
         </a>
       </div>
       <div class="treq dashboardsec">
-        <a href="#">
+        <a href="req.php">
           <img class="admindashico" src="../includes/icons/11-Content/02-Books/1024w/book-upload.png" alt="">
           <p>Requisições</p>
           <?php
@@ -80,9 +80,10 @@ require '../config/config.php';
           <img class="admindashico" src="../includes/icons/36-School-Learning/04-Library-Reading/1024w/read-human.png" alt="">
           <p>Alunos Registados</p>
           <?php
-          $result = mysqli_query($con, "SELECT * FROM tblstudents");
-          $num_rows = mysqli_num_rows($result);
-          echo "<p>$num_rows</p>";
+          $resultalu = mysqli_query($con, "SELECT * FROM tblstudents");
+          echo "$resultalu";
+          //$num_rows = mysqli_num_rows($resultalu);
+          //echo "<p>$num_rows</p>";
            ?>
         </a>
       </div>
