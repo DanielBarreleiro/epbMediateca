@@ -38,7 +38,7 @@ require '../config/config.php';
     </div>
     <div class="bookstable">
       <table class="uk-table uk-table-striped uk-table-responsive">
-          <tr><td>ISBN</td><td>Título</td><td>Categoria</td><td>Autor</td></tr>
+          <tr><td>ISBN</td><td>Título</td><td>Categoria</td></tr>
           <?php
               //Estabelece a ligação com o mysql ALTERNATIVA AO LOGIN COM INCLUDE
               $ligacao = mysqli_connect("localhost","root","","epbMediateca");
@@ -103,7 +103,6 @@ require '../config/config.php';
                   echo "<td>" .$dados['ISBNNumber']. "</td>";
                   echo "<td>" .$dados['BookName']. "</td>";
                   echo "<td>" .$dados['CatId']. "</td>";
-          				echo "<td>" .$dados['AuthorId']. "</td>";
                   echo "<td>";
                   echo "</tr>";
               }

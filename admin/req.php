@@ -13,6 +13,7 @@ require '../config/config.php';
     <link href="https://fonts.googleapis.com/css?family=Ubuntu&display=swap" rel="stylesheet">
     <script src="../js/uikit.js" charset="utf-8"></script>
     <script src="../js/uikit-icons.js" charset="utf-8"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
   </head>
   <nav class="uk-navbar-container" uk-navbar>
     <div class="uk-navbar-left">
@@ -26,5 +27,65 @@ require '../config/config.php';
     </div>
   </nav>
   <body>
+    <script>
+      // function for get student name
+      function getstudent() {
+        jQuery.ajax({
+        url: "get_student.php",
+        data:'studentid='+$("#studentid").val(),
+        type: "POST",
+        success:function(data){
+        $("#get_student_name").html(data);
+        $("#loaderIcon").hide();
+        },
+        error:function (){}
+        });
+      }
+
+      //function for book details
+      function getbook() {
+        jQuery.ajax({
+        url: "get_book.php",
+        data:'bookid='+$("#bookid").val(),
+        type: "POST",
+        success:function(data){
+        $("#get_book_name").html(data);
+        $("#loaderIcon").hide();
+        },
+        error:function (){}
+        });
+      }
+
+    </script>
+    <div class="login uk-align-right">
+      <hr class="top">
+      <p class="p18" >Login</p>
+      <div class="loginform">
+        <h4 class="">Login</h4>
+        <form class="" role="form" method="post">
+          <div class="uk-margin">
+            <div class="uk-inline">
+              <span class="uk-form-icon" uk-icon="icon: user"></span>
+              <input class="uk-input" type="text" placeholder="ID Aluno (Ex: gpsi173670)" name="studentid" id="studentid" onBlur="getstudent()" autocomplete="off"  required />
+            </div>
+          </div>
+          <span id="get_student_name" style="font-size:16px;"></span>
+          <div class="uk-margin">
+            <div class="uk-inline">
+              <span class="uk-form-icon" uk-icon="icon: tag"></span>
+              <input class="uk-input" type="text" placeholder="Referência ou Título" name="booikid" id="bookid" onBlur="getbook()" required="required" />
+            </div>
+          </div>
+          <div class="uk-margin">
+            <div class="uk-inline">
+              <select  class="uk-select" id="form-stacked-select" name="bookdetails" id="get_book_name" readonly>
+
+              </select>
+            </div>
+          </div>
+          <button type="submit" name="issue" id="submit" class="uk-button uk-button-default uk-button-primary">Requisitar </button>
+        </form>
+      </div>
+    </div>
   </body>
 </html>

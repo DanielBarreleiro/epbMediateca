@@ -8,19 +8,11 @@
 //declaração de variáveis
 $fname = ""; //primeiro nome
 $em = ""; //email
+$id = ""; //id aluno
 $phone = "";
 $password = ""; //password
 $reg_date = ""; //data de registo
 $error_array = array(); //guarda mensagens de erro
-
-//Gerador de ID do aluno
-$count_students = ("studentid.txt");
-$hits = file($count_students);
-$hits[0] ++;
-$fp = fopen($count_students , "w");
-fputs($fp , "$hits[0]");
-fclose($fp);
-$studentid= $hits[0];
 
 if(isset($_POST['register_button'])) {
   //valores do fomrulário de registo
@@ -34,6 +26,11 @@ if(isset($_POST['register_button'])) {
   $em = str_replace(' ', '', $em); //remove espaços
   $em = strtolower($em); //converte tudo para minúculas
   $_SESSION['reg_email'] = $em; //guarda email para variável da sessão
+  //idea
+  $id = strip_tags($_POST['reg_id']); //remove tags html
+  $id = str_replace(' ', '', $id); //remove espaços
+  $id = strtolower($id); //converte tudo para minúculas
+  $_SESSION['reg_id'] = $id; //guarda email para variável da sessão
   //telemovel
   $phone = strip_tags($_POST['reg_phone']); //remove tags html
   $phone = str_replace(' ', '', $phone); //remove espaços
@@ -89,8 +86,18 @@ if(isset($_POST['register_button'])) {
 
   if (empty($error_array)) {
     header("Refresh:2; url=index.php");
+
+    //Gerador de ID do aluno
+    /*$count_students = ("studentid.txt");
+    $hits = file($count_students);
+    $hits[0] ++;
+    $fp = fopen($count_students , "w");
+    fputs($fp , "$hits[0]");
+    fclose($fp);
+    $studentid= $hits[0];*/
+
     //Enviar email de confirmação
-    require_once 'email.php';
+    require_once 'config/email.php';
 
     $password = password_hash($password, PASSWORD_BCRYPT);
     //encriptar a password antes de ser enviada para a base de dados, é misturado com SALT automaticamente
@@ -98,7 +105,7 @@ if(isset($_POST['register_button'])) {
     //a hash resultante é enviada para a base de dados
 
     //enviar todos os dados para a base de dados
-    $query = mysqli_query($con, "INSERT INTO tblstudents (StudentId, FullName, email, phone, password) VALUES ('$studentid', '$fname', '$em', '$phone', '$password')");
+    $query = mysqli_query($con, "INSERT INTO tblstudents (StudentId, FullName, email, phone, password) VALUES ('$id', '$fname', '$em', '$phone', '$password')");
     echo "<br>";
     echo '<script>let timerInterval
         swal.fire({

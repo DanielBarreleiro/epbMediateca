@@ -80,10 +80,9 @@ require '../config/config.php';
           <img class="admindashico" src="../includes/icons/36-School-Learning/04-Library-Reading/1024w/read-human.png" alt="">
           <p>Alunos Registados</p>
           <?php
-          $resultalu = mysqli_query($con, "SELECT * FROM tblstudents");
-          echo "$resultalu";
-          //$num_rows = mysqli_num_rows($resultalu);
-          //echo "<p>$num_rows</p>";
+          $result = mysqli_query($con, "SELECT * FROM tblstudents");
+          $num_rows = mysqli_num_rows($result);
+          echo "<p>$num_rows</p>";
            ?>
         </a>
       </div>

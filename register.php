@@ -64,6 +64,21 @@ require 'includes/form_handlers/login_handler.php';
             </div>
           </div>
           <!--END email-->
+          <!--START ID-->
+          <div class="uk-margin">
+            <div class="uk-inline">
+                <span class="uk-form-icon" uk-icon="icon: id"></span>
+                <input type="text" name="reg_id" class="uk-input" type="text" placeholder="Nº Aluno" uk-tooltip="title: Ex: gpsi173670; pos: right" value="<?php
+                if (isset($_SESSION['reg_id'])) {
+                  echo $_SESSION['reg_id'];
+                }
+                ?>" required>
+                <br>
+                <?php if (in_array("ID já em uso<br>", $error_array)) {echo "ID já em uso<br>";}
+                else if (in_array("Formato inválido<br>", $error_array)) {echo "Formato inválido<br>";} ?>
+            </div>
+          </div>
+          <!--END ID-->
           <!--START phone-->
           <div class="uk-margin">
             <div class="uk-inline">
