@@ -87,15 +87,6 @@ if(isset($_POST['register_button'])) {
   if (empty($error_array)) {
     header("Refresh:2; url=index.php");
 
-    //Gerador de ID do aluno
-    /*$count_students = ("studentid.txt");
-    $hits = file($count_students);
-    $hits[0] ++;
-    $fp = fopen($count_students , "w");
-    fputs($fp , "$hits[0]");
-    fclose($fp);
-    $studentid= $hits[0];*/
-
     //Enviar email de confirmação
     require_once 'config/email.php';
 

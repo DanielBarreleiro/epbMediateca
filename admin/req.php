@@ -32,11 +32,10 @@ require '../config/config.php';
       function getstudent() {
         jQuery.ajax({
         url: "get_student.php",
-        data:'studentid='+$("#studentid").val(),
+        data:'StudentId='+$("#StudentId").val(),
         type: "POST",
         success:function(data){
         $("#get_student_name").html(data);
-        $("#loaderIcon").hide();
         },
         error:function (){}
         });
@@ -46,11 +45,10 @@ require '../config/config.php';
       function getbook() {
         jQuery.ajax({
         url: "get_book.php",
-        data:'bookid='+$("#bookid").val(),
+        data:'ISBNNumber='+$("#ISBNNumber").val(),
         type: "POST",
         success:function(data){
         $("#get_book_name").html(data);
-        $("#loaderIcon").hide();
         },
         error:function (){}
         });
@@ -59,28 +57,29 @@ require '../config/config.php';
     </script>
     <div class="login uk-align-right">
       <hr class="top">
-      <p class="p18" >Login</p>
+      <p class="p18" >Requisitar Livro</p>
       <div class="loginform">
-        <h4 class="">Login</h4>
+        <h4 class="">Requisitar Livro</h4>
         <form class="" role="form" method="post">
           <div class="uk-margin">
             <div class="uk-inline">
               <span class="uk-form-icon" uk-icon="icon: user"></span>
-              <input class="uk-input" type="text" placeholder="ID Aluno (Ex: gpsi173670)" name="studentid" id="studentid" onBlur="getstudent()" autocomplete="off"  required />
+              <input class="uk-input" type="text" placeholder="ID Aluno (Ex: gpsi173670)" name="StudentId" id="StudentId" onBlur="getstudent()" autocomplete="off"  required />
             </div>
           </div>
           <span id="get_student_name" style="font-size:16px;"></span>
           <div class="uk-margin">
             <div class="uk-inline">
               <span class="uk-form-icon" uk-icon="icon: tag"></span>
-              <input class="uk-input" type="text" placeholder="Referência ou Título" name="booikid" id="bookid" onBlur="getbook()" required="required" />
+              <input class="uk-input" type="text" placeholder="Referência ou Título" name="ISBNNumber" id="ISBNNumber" onBlur="getbook()" required="required" />
             </div>
           </div>
+          <span id="get_book_name" style="font-size:16px;"></span>
           <div class="uk-margin">
             <div class="uk-inline">
-              <select  class="uk-select" id="form-stacked-select" name="bookdetails" id="get_book_name" readonly>
+              <!--<select  class="uk-select" id="form-stacked-select" name="bookdetails" id="get_book_name" readonly>
 
-              </select>
+              </select>-->
             </div>
           </div>
           <button type="submit" name="issue" id="submit" class="uk-button uk-button-default uk-button-primary">Requisitar </button>

@@ -41,14 +41,9 @@ require '../config/config.php';
           <tr><td>ISBN</td><td>Título</td><td>Categoria</td></tr>
           <?php
               //Estabelece a ligação com o mysql ALTERNATIVA AO LOGIN COM INCLUDE
-              $ligacao = mysqli_connect("localhost","root","","epbMediateca");
-              mysqli_set_charset($ligacao,"utf8"); // resolve a questão dos acentos e cedilhas
-              if( !$ligacao ){
-                  echo "Erro na ligação à base de dados.";
-                  exit;
-              }
+              mysqli_set_charset($con,"utf8"); // resolve a questão dos acentos e cedilhas
               $sql = "SELECT * FROM tblbooks ORDER BY id";
-              $consulta = mysqli_query($ligacao, $sql);
+              $consulta = mysqli_query($con, $sql);
               if( !$consulta ){
                   echo "Erro ao realizar a consulta.";
                   exit;
