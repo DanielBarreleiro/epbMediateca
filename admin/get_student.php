@@ -24,7 +24,9 @@ if(!empty($_POST["StudentId"])) {
     }
   }
   else{
-    echo "<span style='color:red'> ID inválido, por favor insira um ID válido. (Ex: gpsi173670)</span>";
+    echo "<span style='color:red'> ID inválido / inexistente, por favor insira um ID válido. (Ex: gpsi173670)</span>";
+    echo "<br>";
+    echo "<span style='color:red'>(O aluno está registado?)</span>";
     echo "<script>$('#submit').prop('disabled',true);</script>";
   }
 }

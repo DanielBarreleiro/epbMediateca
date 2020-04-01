@@ -54,22 +54,22 @@ require '../config/config.php';
         </a>
       </div>
       <div class="tdev dashboardsec">
-        <a href="#">
+        <a href="dev.php">
           <img class="admindashico" src="../includes/icons/11-Content/02-Books/1024w/book-download.png" alt="">
           <p>Devoluções</p>
           <?php
-          $result = mysqli_query($con, "SELECT * FROM tblissuedbookdetails WHERE ReturnStatus = 0");
+          $result = mysqli_query($con, "SELECT * FROM tblissuedbookdetails WHERE ReturnStatus = 1");
           $num_rows = mysqli_num_rows($result);
           echo "<p>$num_rows</p>";
            ?>
         </a>
       </div>
       <div class="tpordev dashboardsec">
-        <a href="#">
+        <a href="pordev.php">
           <img class="admindashico" src="../includes/icons/11-Content/02-Books/1024w/book-warn.png" alt="">
           <p>Por Devolver</p>
           <?php
-          $result = mysqli_query($con, "SELECT * FROM tblissuedbookdetails WHERE ReturnStatus = 1");
+          $result = mysqli_query($con, "SELECT * FROM tblissuedbookdetails WHERE ReturnStatus = 0");
           $num_rows = mysqli_num_rows($result);
           echo "<p>$num_rows</p>";
            ?>

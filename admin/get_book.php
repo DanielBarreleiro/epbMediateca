@@ -18,6 +18,7 @@ if(!empty($_POST["ISBNNumber"])) {
   }
   else{
     echo "Referência Inválida";
+    echo "<br><span style='color:red'>(O Livro já foi adicionado à Base de dados?)</span>";
     echo "<script>$('#submit').prop('disabled',true);</script>";
   }
 }

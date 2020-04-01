@@ -1,5 +1,6 @@
 <?php
 require '../config/config.php';
+require 'handlers/req_book.php';
 ?>
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
@@ -60,7 +61,7 @@ require '../config/config.php';
       <p class="p18" >Requisitar Livro</p>
       <div class="loginform">
         <h4 class="">Requisitar Livro</h4>
-        <form class="" role="form" method="post">
+        <form action="req.php" method="post">
           <div class="uk-margin">
             <div class="uk-inline">
               <span class="uk-form-icon" uk-icon="icon: user"></span>
@@ -71,18 +72,15 @@ require '../config/config.php';
           <div class="uk-margin">
             <div class="uk-inline">
               <span class="uk-form-icon" uk-icon="icon: tag"></span>
-              <input class="uk-input" type="text" placeholder="Referência ou Título" name="ISBNNumber" id="ISBNNumber" onBlur="getbook()" required="required" />
+              <input class="uk-input" type="text" placeholder="Referência" name="ISBNNumber" id="ISBNNumber" onBlur="getbook()" required="required" />
             </div>
           </div>
           <span id="get_book_name" style="font-size:16px;"></span>
           <div class="uk-margin">
             <div class="uk-inline">
-              <!--<select  class="uk-select" id="form-stacked-select" name="bookdetails" id="get_book_name" readonly>
-
-              </select>-->
             </div>
           </div>
-          <button type="submit" name="issue" id="submit" class="uk-button uk-button-default uk-button-primary">Requisitar </button>
+          <button type="submit" name="req_book" id="submit" class="uk-button uk-button-default uk-button-primary">Requisitar</button>
         </form>
       </div>
     </div>

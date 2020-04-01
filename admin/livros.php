@@ -38,7 +38,7 @@ require '../config/config.php';
     </div>
     <div class="bookstable">
       <table class="uk-table uk-table-striped uk-table-responsive">
-          <tr><td>ISBN</td><td>Título</td><td>Categoria</td></tr>
+          <tr><td>#</td><td>ISBN</td><td>Título</td><td>Categoria</td></tr>
           <?php
               //Estabelece a ligação com o mysql ALTERNATIVA AO LOGIN COM INCLUDE
               mysqli_set_charset($con,"utf8"); // resolve a questão dos acentos e cedilhas
@@ -48,6 +48,7 @@ require '../config/config.php';
                   echo "Erro ao realizar a consulta.";
                   exit;
               }
+              $cnt = 1;
               while( $dados = mysqli_fetch_assoc($consulta) ){
                 if ($dados['CatId'] == '8') {
                   $dados['CatId'] = 'Informática';
@@ -95,11 +96,13 @@ require '../config/config.php';
                   $dados['CatId'] = 'Português';
                 }
                   echo "<tr>";
+                  echo "<td>" . $cnt . "</td>";
                   echo "<td>" .$dados['ISBNNumber']. "</td>";
                   echo "<td>" .$dados['BookName']. "</td>";
                   echo "<td>" .$dados['CatId']. "</td>";
                   echo "<td>";
                   echo "</tr>";
+                  $cnt += 1;
               }
           ?>
       </table>
