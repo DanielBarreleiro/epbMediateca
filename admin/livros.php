@@ -1,6 +1,3 @@
-<?php
-require '../config/config.php';
-?>
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
   <head>
@@ -11,9 +8,43 @@ require '../config/config.php';
     <link href="../css/uikit.css" rel="stylesheet" />
 	  <link href="../css/master.css" rel="stylesheet" />
     <link href="https://fonts.googleapis.com/css?family=Ubuntu&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9.8.2/dist/sweetalert2.all.min.js"></script>
+    <link rel='stylesheet' href='https://cdn.jsdelivr.net/npm/sweetalert2@9.8.2/dist/sweetalert2.min.css'>
     <script src="../js/uikit.js" charset="utf-8"></script>
     <script src="../js/uikit-icons.js" charset="utf-8"></script>
   </head>
+<?php
+require '../config/config.php';
+if(isset($_GET['del']))
+{
+$id = $_GET['del'];
+$sql = "DELETE FROM tblbooks  WHERE id=$id";
+$consulta = mysqli_query($con, $sql);
+$_SESSION['delmsg'] = "Deleted";
+header("Refresh:2; url=livros.php");
+if ($_SESSION['delmsg'] == "Deleted") {
+  echo "<br>";
+  echo '<script>let timerInterval
+      swal.fire({
+        title: "Livro Eliminado!",
+        icon: "success",
+        timer: 2000,
+        timerProgressBar: true,
+        onBeforeOpen: () => {
+          swal.showLoading()
+        },
+        onClose: () => {
+          clearInterval(timerInterval)
+        }
+      }).then((result) => {
+        /* Read more about handling dismissals below */
+        if (result.dismiss === swal.DismissReason.timer) {
+          console.log("I was closed by the timer")
+        }
+      })</script>';
+}
+}
+?>
   <nav class="uk-navbar-container" uk-navbar>
     <div class="uk-navbar-left">
       <a class="uk-navbar-item uk-logo" href="index.php"><img src="../img/logo.png" width="250"/></a>
@@ -38,71 +69,28 @@ require '../config/config.php';
     </div>
     <div class="bookstable">
       <table class="uk-table uk-table-striped uk-table-responsive">
-          <tr><td>#</td><td>ISBN</td><td>Título</td><td>Categoria</td></tr>
+          <tr><td>#</td><td>ISBN</td><td>Título</td><td>Autor</td><td>Categoria</td><td>-  -</td></tr>
           <?php
               //Estabelece a ligação com o mysql ALTERNATIVA AO LOGIN COM INCLUDE
               mysqli_set_charset($con,"utf8"); // resolve a questão dos acentos e cedilhas
-              $sql = "SELECT * FROM tblbooks ORDER BY id";
+              $sql = "SELECT tblbooks.BookName,tblcategory.CategoryName,tblauthors.AuthorName,tblbooks.ISBNNumber,tblbooks.id as bookid from tblbooks join tblcategory on tblcategory.id = tblbooks.CatId JOIN tblauthors ON tblauthors.id = tblbooks.AuthorId";
               $consulta = mysqli_query($con, $sql);
               if( !$consulta ){
                   echo "Erro ao realizar a consulta.";
                   exit;
               }
               $cnt = 1;
-              while( $dados = mysqli_fetch_assoc($consulta) ){
-                if ($dados['CatId'] == '8') {
-                  $dados['CatId'] = 'Informática';
-                }
-                if ($dados['CatId'] == '9') {
-                  $dados['CatId'] = 'Tecnologias Administrativas';
-                }
-                if ($dados['CatId'] == '10') {
-                  $dados['CatId'] = 'Biologia';
-                }
-                if ($dados['CatId'] == '11') {
-                  $dados['CatId'] = 'Construção Civil';
-                }
-                if ($dados['CatId'] == '12') {
-                  $dados['CatId'] = 'Contabilidade e Gestão';
-                }
-                if ($dados['CatId'] == '13') {
-                  $dados['CatId'] = 'Design Gráfico';
-                }
-                if ($dados['CatId'] == '14') {
-                  $dados['CatId'] = 'Direito';
-                }
-                if ($dados['CatId'] == '15') {
-                  $dados['CatId'] = 'Educação Informação';
-                }
-                if ($dados['CatId'] == '16') {
-                  $dados['CatId'] = 'Eletrónica';
-                }
-                if ($dados['CatId'] == '17') {
-                  $dados['CatId'] = 'Física-Química';
-                }
-                if ($dados['CatId'] == '18') {
-                  $dados['CatId'] = 'Francês';
-                }
-                if ($dados['CatId'] == '19') {
-                  $dados['CatId'] = 'Inglês';
-                }
-                if ($dados['CatId'] == '20') {
-                  $dados['CatId'] = 'Marketing';
-                }
-                if ($dados['CatId'] == '21') {
-                  $dados['CatId'] = 'Matemática';
-                }
-                if ($dados['CatId'] == '22') {
-                  $dados['CatId'] = 'Português';
-                }
-                  echo "<tr>";
-                  echo "<td>" . $cnt . "</td>";
-                  echo "<td>" .$dados['ISBNNumber']. "</td>";
-                  echo "<td>" .$dados['BookName']. "</td>";
-                  echo "<td>" .$dados['CatId']. "</td>";
-                  echo "<td>";
-                  echo "</tr>";
-                  $cnt += 1;
+              while( $dados = mysqli_fetch_assoc($consulta) ){ //----Limpeza de código, utilização da linguagem SQL, para juntar dados das tabelas, evitando conversoes dos dados em PHP desnecessárias
+                echo "<tr>";
+                echo "<td>" . $cnt . "</td>";
+                echo "<td>" . $dados['BookName']. "</td>";
+                echo "<td>" . $dados['CategoryName']. "</td>";
+                echo "<td>" . $dados['AuthorName']. "</td>";
+                echo "<td>" . $dados['ISBNNumber']. "</td>";
+                echo "<td>" . "<a href='edit-book.php?bookid=" . $dados['bookid'] . "'><button class='uk-button uk-button-primary'><span uk-icon='icon: pencil'> </span> Editar</button>" . "<a href='livros.php?del=" . $dados['bookid'] . "'><button class='uk-button uk-button-danger'><span uk-icon='icon: trash'> </span> Eliminar</button>" . "</td>";
+                //Botoes DIFICULADE
+                echo "</tr>";
+                $cnt += 1;
               }
           ?>
       </table>
