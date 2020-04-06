@@ -16,17 +16,7 @@ require 'handlers/req_book.php';
     <script src="../js/uikit-icons.js" charset="utf-8"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
   </head>
-  <nav class="uk-navbar-container" uk-navbar>
-    <div class="uk-navbar-left">
-      <a class="uk-navbar-item uk-logo" href="index.php"><img src="../img/logo.png" width="250"/></a>
-    </div>
-    <div class="uk-navbar-right">
-      <ul class="uk-navbar-nav">
-        <li class="uk-active navbar"><a href="index.php">PÁGINA INICIAL</a></li>
-        <li class="navbar"><a href="dashboard.php"> DASHBOARD </a></li>
-      </ul>
-    </div>
-  </nav>
+  <?php include 'header/header.php' ?>
   <body>
     <script>
       // function for get student name
@@ -65,14 +55,14 @@ require 'handlers/req_book.php';
           <div class="uk-margin">
             <div class="uk-inline">
               <span class="uk-form-icon" uk-icon="icon: user"></span>
-              <input class="uk-input" type="text" placeholder="ID Aluno (Ex: gpsi173670)" name="StudentId" id="StudentId" onBlur="getstudent()" autocomplete="off"  required />
+              <input class="uk-input" type="text" placeholder="Nº Aluno" name="StudentId" id="StudentId" onBlur="getstudent()" autocomplete="off" uk-tooltip="title: Ex: gpsi173670; pos: right" required />
             </div>
           </div>
           <span id="get_student_name" style="font-size:16px;"></span>
           <div class="uk-margin">
             <div class="uk-inline">
               <span class="uk-form-icon" uk-icon="icon: tag"></span>
-              <input class="uk-input" type="text" placeholder="Referência" name="ISBNNumber" id="ISBNNumber" onBlur="getbook()" required="required" />
+              <input class="uk-input" type="text" placeholder="Referência" name="ISBNNumber" id="ISBNNumber" onBlur="getbook()" uk-tooltip="title: Ex: TECNO003; pos: right" required="required" />
             </div>
           </div>
           <span id="get_book_name" style="font-size:16px;"></span>

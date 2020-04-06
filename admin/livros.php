@@ -15,6 +15,7 @@
   </head>
 <?php
 require '../config/config.php';
+
 if(isset($_GET['del']))
 {
 $id = $_GET['del'];
@@ -44,18 +45,8 @@ if ($_SESSION['delmsg'] == "Deleted") {
       })</script>';
 }
 }
+include 'header/header.php';
 ?>
-  <nav class="uk-navbar-container" uk-navbar>
-    <div class="uk-navbar-left">
-      <a class="uk-navbar-item uk-logo" href="index.php"><img src="../img/logo.png" width="250"/></a>
-    </div>
-    <div class="uk-navbar-right">
-      <ul class="uk-navbar-nav">
-        <li class="uk-active navbar"><a href="index.php">PÁGINA INICIAL</a></li>
-        <li class="navbar"><a href="dashboard.php"> DASHBOARD </a></li>
-      </ul>
-    </div>
-  </nav>
   <body>
     <div class="uk-margin">
       <div class="uk-search uk-search-default">
@@ -67,9 +58,9 @@ if ($_SESSION['delmsg'] == "Deleted") {
         <button type="submit" name="button" class="uk-button uk-button-secondary" onclick="catClear()" >Limpar Filtros</button>
       </div>
     </div>
-    <div class="bookstable">
+    <div class="">
       <table class="uk-table uk-table-striped uk-table-responsive">
-          <tr><td>#</td><td>ISBN</td><td>Título</td><td>Autor</td><td>Categoria</td><td>-  -</td></tr>
+          <tr><td></td><td>#</td><td>ISBN</td><td>Título</td><td>Autor</td><td>Categoria</td><td>-  -</td><td></td></tr>
           <?php
               //Estabelece a ligação com o mysql ALTERNATIVA AO LOGIN COM INCLUDE
               mysqli_set_charset($con,"utf8"); // resolve a questão dos acentos e cedilhas
@@ -82,13 +73,15 @@ if ($_SESSION['delmsg'] == "Deleted") {
               $cnt = 1;
               while( $dados = mysqli_fetch_assoc($consulta) ){ //----Limpeza de código, utilização da linguagem SQL, para juntar dados das tabelas, evitando conversoes dos dados em PHP desnecessárias
                 echo "<tr>";
+                echo "<td>" . " " . "</td>";
                 echo "<td>" . $cnt . "</td>";
-                echo "<td>" . $dados['BookName']. "</td>";
-                echo "<td>" . $dados['CategoryName']. "</td>";
-                echo "<td>" . $dados['AuthorName']. "</td>";
                 echo "<td>" . $dados['ISBNNumber']. "</td>";
+                echo "<td>" . $dados['BookName']. "</td>";
+                echo "<td style='width: 30%;'>" . $dados['AuthorName']. "</td>";
+                echo "<td>" . $dados['CategoryName']. "</td>";
                 echo "<td>" . "<a href='edit-book.php?bookid=" . $dados['bookid'] . "'><button class='uk-button uk-button-primary'><span uk-icon='icon: pencil'> </span> Editar</button>" . "<a href='livros.php?del=" . $dados['bookid'] . "'><button class='uk-button uk-button-danger'><span uk-icon='icon: trash'> </span> Eliminar</button>" . "</td>";
                 //Botoes DIFICULADE
+                echo "<td>" . " " . "</td>";
                 echo "</tr>";
                 $cnt += 1;
               }

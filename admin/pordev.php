@@ -14,17 +14,7 @@ require '../config/config.php';
     <script src="../js/uikit.js" charset="utf-8"></script>
     <script src="../js/uikit-icons.js" charset="utf-8"></script>
   </head>
-  <nav class="uk-navbar-container" uk-navbar>
-    <div class="uk-navbar-left">
-      <a class="uk-navbar-item uk-logo" href="index.php"><img src="../img/logo.png" width="250"/></a>
-    </div>
-    <div class="uk-navbar-right">
-      <ul class="uk-navbar-nav">
-        <li class="uk-active navbar"><a href="index.php">PÁGINA INICIAL</a></li>
-        <li class="navbar"><a href="dashboard.php"> DASHBOARD </a></li>
-      </ul>
-    </div>
-  </nav>
+  <?php include 'header/header.php' ?>
   <body>
     <div class="uk-margin">
       <div class="uk-search uk-search-default">
@@ -36,9 +26,9 @@ require '../config/config.php';
         <button type="submit" name="button" class="uk-button uk-button-secondary" onclick="catClear()" >Limpar Filtros</button>
       </div>
     </div>
-    <div class="bookstable">
+    <div class="">
       <table class="uk-table uk-table-striped uk-table-responsive">
-          <tr><td>#</td><td>Referência</td><td>ID Aluno</td><td>Multa</td><td>-</td></tr>
+          <tr><td></td><td>#</td><td>Referência</td><td>Nº Aluno</td><td>-</td></tr>
           <?php
               //Estabelece a ligação com o mysql ALTERNATIVA AO LOGIN COM INCLUDE
               mysqli_set_charset($con,"utf8"); // resolve a questão dos acentos e cedilhas
@@ -51,17 +41,17 @@ require '../config/config.php';
               $cnt = 1;
               while( $dados = mysqli_fetch_assoc($consulta) ){
                 echo "<tr>";
+                echo "<td>" . " " . "</td>";
                 echo "<td>" . $cnt . "</td>";
                 echo "<td>" . $dados['ISBNNumber'] . "</td>";
                 echo "<td>" . $dados['StudentID'] . "</td>";
-                echo "<td>" . $dados['fine'] . "€</td>";
                 echo "<td>" . "<a id='js-modal-prompt' class='uk-button uk-button-primary' href='#'>Devolver</a>" . "</td>";
                 echo "<script type='text/javascript'>
                   UIkit.util.on('#js-modal-prompt', 'click', function (e) {
                        e.preventDefault();
                        e.target.blur();
-                       UIkit.modal.prompt('Name:', 'Your name').then(function (name) {
-                           console.log('Prompted:', name)
+                       UIkit.modal.prompt('Multa: (em €)', '').then(function (name) {
+                           console.log('Prompted:', 0)
                        });
                    });
                   </script>";

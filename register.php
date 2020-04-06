@@ -15,17 +15,7 @@ require 'includes/form_handlers/login_handler.php';
     <script src="js/uikit.js" charset="utf-8"></script>
     <script src="js/uikit-icons.js" charset="utf-8"></script>
   </head>
-  <nav class="uk-navbar-container" uk-navbar>
-    <div class="uk-navbar-left">
-      <a class="uk-navbar-item uk-logo" href="index.php"><img src="img/logo.png" width="250"/></a>
-    </div>
-    <div class="uk-navbar-right">
-      <ul class="uk-navbar-nav">
-        <li class="uk-active navbar"><a href="index.php">PÁGINA INICIAL</a></li>
-        <li class="navbar"><a href="login.php"> LOGIN </a></li>
-      </ul>
-    </div>
-  </nav>
+  <?php include 'includes/header.php' ?>
   <body>
     <div class="login uk-align-right">
       <hr class="top">
@@ -67,7 +57,7 @@ require 'includes/form_handlers/login_handler.php';
           <!--START ID-->
           <div class="uk-margin">
             <div class="uk-inline">
-                <span class="uk-form-icon" uk-icon="icon: id"></span>
+                <span class="uk-form-icon" uk-icon="icon: tag"></span>
                 <input type="text" name="reg_id" class="uk-input" type="text" placeholder="Nº Aluno" uk-tooltip="title: Ex: gpsi173670; pos: right" value="<?php
                 if (isset($_SESSION['reg_id'])) {
                   echo $_SESSION['reg_id'];

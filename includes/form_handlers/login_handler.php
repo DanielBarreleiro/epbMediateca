@@ -20,16 +20,22 @@ if (isset($_POST['log_email'])) {
   $usernamerow = mysqli_fetch_array($username);
   $username = $usernamerow['FullName'];
 
+  $sid = mysqli_query($con, "SELECT StudentId FROM tblstudents WHERE email='$email'");
+  $sidrow = mysqli_fetch_array($sid);
+  $sid = $sidrow['StudentId'];
+
   if (password_verify($password, $hash)) {
-    header("Refresh:2; url=index.php");
+    header("Refresh:1; url=index.php");
+    $_SESSION['stdid'] = $sid;
+    $_SESSION['login'] = '';
     $_SESSION['username'] = $username;
     echo "<br>";
     echo '<script>let timerInterval
           swal.fire({
             title: "Logado com sucesso!",
             icon: "success",
-            html: "Vais ser redirecionado em 2 segundos.",
-            timer: 2000,
+            html: "Vais ser redirecionado.",
+            timer: 1000,
             timerProgressBar: true,
             onBeforeOpen: () => {
               swal.showLoading()

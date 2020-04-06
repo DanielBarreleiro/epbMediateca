@@ -1,5 +1,6 @@
 <?php
 require '../config/config.php';
+
 if(!empty($_POST["ISBNNumber"])) {
   $ISBNNumber=strtoupper($_POST["ISBNNumber"]);
 

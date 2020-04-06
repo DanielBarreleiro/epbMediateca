@@ -1,6 +1,3 @@
-<?php
-require '../config/config.php';
-?>
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
   <head>
@@ -11,10 +8,15 @@ require '../config/config.php';
     <link href="../css/uikit.css" rel="stylesheet" />
 	  <link href="../css/master.css" rel="stylesheet" />
     <link href="https://fonts.googleapis.com/css?family=Ubuntu&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9.8.2/dist/sweetalert2.all.min.js"></script>
+    <link rel='stylesheet' href='https://cdn.jsdelivr.net/npm/sweetalert2@9.8.2/dist/sweetalert2.min.css'>
     <script src="../js/uikit.js" charset="utf-8"></script>
     <script src="../js/uikit-icons.js" charset="utf-8"></script>
   </head>
-  <?php include 'header/header.php' ?>
+  <?php
+    require '../config/config.php';
+    include '../includes/header.php';
+  ?>
   <body>
     <div class="uk-margin">
       <div class="uk-search uk-search-default">
@@ -26,13 +28,13 @@ require '../config/config.php';
         <button type="submit" name="button" class="uk-button uk-button-secondary" onclick="catClear()" >Limpar Filtros</button>
       </div>
     </div>
-    <div class="">
+    <div class="bookstable">
       <table class="uk-table uk-table-striped uk-table-responsive">
-          <tr><td></td><td>#</td><td>Referência</td><td>Nº Aluno</td><td>Multa</td></tr>
+          <tr><td></td><td>#</td><td>ISBN</td><td>Título</td><td>Autor</td><td></td></tr>
           <?php
               //Estabelece a ligação com o mysql ALTERNATIVA AO LOGIN COM INCLUDE
               mysqli_set_charset($con,"utf8"); // resolve a questão dos acentos e cedilhas
-              $sql = "SELECT * FROM tblissuedbookdetails WHERE ReturnStatus = 1";
+              $sql = "SELECT tblbooks.BookName,tblauthors.AuthorName,tblbooks.ISBNNumber,tblbooks.id as bookid from tblbooks JOIN tblauthors ON tblauthors.id = tblbooks.AuthorId WHERE CatId = 9";
               $consulta = mysqli_query($con, $sql);
               if( !$consulta ){
                   echo "Erro ao realizar a consulta.";
@@ -43,9 +45,10 @@ require '../config/config.php';
                 echo "<tr>";
                 echo "<td>" . " " . "</td>";
                 echo "<td>" . $cnt . "</td>";
-                echo "<td>" . $dados['ISBNNumber'] . "</td>";
-                echo "<td>" . $dados['StudentID'] . "</td>";
-                echo "<td>" . $dados['fine'] . "€</td>";
+                echo "<td>" . $dados['ISBNNumber']. "</td>";
+                echo "<td>" . $dados['BookName']. "</td>";
+                echo "<td>" . $dados['AuthorName']. "</td>";
+                echo "<td>" . " " . "</td>";
                 echo "</tr>";
                 $cnt += 1;
               }

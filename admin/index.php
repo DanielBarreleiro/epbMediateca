@@ -14,20 +14,10 @@ require '../config/config.php';
     <script src="../js/uikit.js" charset="utf-8"></script>
     <script src="../js/uikit-icons.js" charset="utf-8"></script>
   </head>
-  <nav class="uk-navbar-container" uk-navbar>
-    <div class="uk-navbar-left">
-      <a class="uk-navbar-item uk-logo" href="../index.php"><img src="../img/logo.png" width="250"/></a>
-    </div>
-    <div class="uk-navbar-right">
-      <ul class="uk-navbar-nav">
-        <li class="uk-active navbar"><a href="index.php">PÁGINA INICIAL</a></li>
-        <li class="navbar"><a href="dashboard.php"> DASHBOARD </a></li>
-      </ul>
-    </div>
-  </nav>
+  <?php include 'header/header.php' ?>
   <body>
     <div class="uk-margin" style="text-align: center">
-      <h2>Admin Dashboard</h2>
+      <h2>Painel Admin</h2>
     </div>
     <hr style="width: 85%;" class="uk-align-center">
     <div uk-grid class="admindash">
@@ -45,7 +35,7 @@ require '../config/config.php';
       <div class="treq dashboardsec">
         <a href="req.php">
           <img class="admindashico" src="../includes/icons/11-Content/02-Books/1024w/book-upload.png" alt="">
-          <p>Requisições</p>
+          <p>Requisitar</p>
           <?php
           $result = mysqli_query($con, "SELECT * FROM tblissuedbookdetails");
           $num_rows = mysqli_num_rows($result);
@@ -76,7 +66,7 @@ require '../config/config.php';
         </a>
       </div>
       <div class="talu dashboardsec">
-        <a href="#">
+        <a href="reg_alu.php">
           <img class="admindashico" src="../includes/icons/36-School-Learning/04-Library-Reading/1024w/read-human.png" alt="">
           <p>Alunos Registados</p>
           <?php

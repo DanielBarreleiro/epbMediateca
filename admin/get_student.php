@@ -1,5 +1,6 @@
 <?php
 require '../config/config.php';
+
 if(!empty($_POST["StudentId"])) {
   $StudentId= strtoupper($_POST["StudentId"]);
 

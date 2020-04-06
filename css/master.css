@@ -47,14 +47,17 @@ section p{
 	float: right;
 }
 footer{
-  margin-top: 5%;
   padding: 2.5% 0;
-  height: auto;
   width: 100%;
-  background-color: #e0e0e0;
-  position: absolute;
-  bottom: 0;
+  background-color: #f7f7f7;
+  position: inherit;
+  margin-top: 50%;
+  max-height: 50px;
 }
+/*@media only screen and (max-width: 1410px) {
+footer {
+  margin-top: 30%;
+}*/
 /*LOGIN*/
 .login{
   padding: 20px 0px;
@@ -111,7 +114,4 @@ footer{
 }
 .admindashico{
   width: 30%;
-}
-.bookstable{
-  width: 90%;
 }

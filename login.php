@@ -19,17 +19,7 @@ require 'includes/form_handlers/login_handler.php';
     <script src="sweetalert2.all.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/promise-polyfill"></script>
   </head>
-  <nav class="uk-navbar-container" uk-navbar>
-    <div class="uk-navbar-left">
-      <a class="uk-navbar-item uk-logo" href="index.php"><img src="img/logo.png" width="250"/></a>
-    </div>
-    <div class="uk-navbar-right">
-      <ul class="uk-navbar-nav">
-        <li class="uk-active navbar"><a href="index.php">PÁGINA INICIAL</a></li>
-        <li class="navbar"><a href="login.php"> LOGIN </a></li>
-      </ul>
-    </div>
-  </nav>
+  <?php include 'includes/header.php' ?>
   <body>
     <div class="login uk-align-right">
       <hr class="top">
@@ -58,7 +48,7 @@ require 'includes/form_handlers/login_handler.php';
           <input class="uk-button uk-button-default uk-button-primary" type="submit" name="login_button" value="Login">
         </form>
         <p><a href="#">Esqueceu-se da palavra-passe?</a></p>
-        <p>Ainda não tens a tua conta? <a href="register.php">Registar</a></p>
+        <p>Ainda não tens conta? <a href="register.php">Registar</a></p>
       </div>
       <img class="sideimg" src="img/auth.svg" alt="">
     </div>
