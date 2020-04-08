@@ -19,8 +19,8 @@
   padding-right: 2%;
 }
 .imgcatalogo{
-  height: 200px;
-  width: 263px;
+  height: 190px;
+  width: 253px;
 }
 .sidebar{
   padding: 20px 0px 0px 50px;
@@ -72,8 +72,15 @@ footer {
   padding: 2%;
 }
 .sideimg{
+  margin-top: -20%;
+  margin-right: 20%;
   float: right;
-  height: 20%;
+  height: 30%;
+}
+@media only screen and (max-width: 1060px) {
+  .sideimg{
+    visibility: hidden;
+  }
 }
 .tlivros{
   padding: 20px 20px 0px 20px;
@@ -111,6 +118,9 @@ footer {
 }
 .dashboardsec:hover{
   background-color: #fafafa;
+}
+.dashboardsec{
+  transition: background-color 0.3s linear;
 }
 .admindashico{
   width: 30%;

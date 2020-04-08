@@ -185,7 +185,7 @@
           <button type="submit" name="button" class="uk-button uk-button-primary">Pesquisar</button>
         </form>
       </div>
-    </div>-->
+    </div>
     <footer>
       <div class="uk-container uk-container-small">
         <a href="" class="uk-icon-button uk-margin-small-right" uk-icon="twitter"></a>
@@ -194,6 +194,6 @@
         <a href="" class="uk-icon-button uk-margin-small-right" uk-icon="linkedin"></a>
         <a href="" class="uk-icon-button uk-margin-small-right" uk-icon="youtube"></a>
       </div>
-    </footer>
+    </footer>-->
   </body>
 </html>

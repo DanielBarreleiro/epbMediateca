@@ -28,7 +28,7 @@
         <button type="submit" name="button" class="uk-button uk-button-secondary" onclick="catClear()" >Limpar Filtros</button>
       </div>
     </div>
-    <div class="bookstable">
+    <div class="">
       <table class="uk-table uk-table-striped uk-table-responsive">
           <tr><td></td><td>#</td><td>ISBN</td><td>Título</td><td>Autor</td><td></td></tr>
           <?php

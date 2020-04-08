@@ -77,5 +77,27 @@ require '../config/config.php';
         </a>
       </div>
     </div>
+    <hr style="width: 85%;" class="uk-align-center">
+    <div uk-grid class="admindash">
+      <div style="width: 30%;" class="tlivros"></div>
+      <div class="treq dashboardsec">
+        <a href="addbook.php">
+          <img class="admindashico" src="../includes/icons/11-Content/02-Books/1024w/book-add.png" alt="">
+          <p>Adiconar Livro</p>
+        </a>
+      </div>
+      <div class="tdev dashboardsec">
+        <a href="addautor.php">
+          <img class="admindashico" src="../includes/icons/11-Content/02-Books/1024w/book-author-add.png" alt="">
+          <p>Adicionar Autor</p>
+        </a>
+      </div>
+      <div class="tpordev dashboardsec">
+        <a href="addcat.php">
+          <img class="admindashico" src="../includes/icons/16-Files-Folders/02-Folders/1024w/folder-add.png" alt="">
+          <p>Adicionar Categoria</p>
+        </a>
+      </div>
+    </div>
   </body>
 </html>

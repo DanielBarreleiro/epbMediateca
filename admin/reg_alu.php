@@ -58,7 +58,7 @@ include 'header/header.php';
         <button type="submit" name="button" class="uk-button uk-button-secondary" onclick="catClear()" >Limpar Filtros</button>
       </div>
     </div>
-    <div class="bookstable">
+    <div class="">
       <table class="uk-table uk-table-striped uk-table-responsive">
           <tr><td></td><td>#</td><td>Nº Aluno</td><td>Nome</td><td>Email</td><td>Nº Tel</td><td></td></tr>
           <?php

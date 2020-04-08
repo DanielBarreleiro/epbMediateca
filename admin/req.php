@@ -73,6 +73,7 @@ require 'handlers/req_book.php';
           <button type="submit" name="req_book" id="submit" class="uk-button uk-button-default uk-button-primary">Requisitar</button>
         </form>
       </div>
+      <img class="sideimg" src="../img/books.svg" alt="">
     </div>
   </body>
 </html>
