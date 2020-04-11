@@ -16,13 +16,12 @@
     <div class="sidebar uk-align-left">
       <hr class="sidetop">
       <ul>
-        <li><a href="#">Catálogo</a></li>
-        <!--<li><a href="#">CD'S / DVD'S</a></li>-->
+        <li><a href="#">Categorias</a></li>
       </ul>
     </div>
     <div class="catalogo uk-align-right">
       <hr class="top">
-      <p class="p18" >Catálogo</p>
+      <p class="p18" >Categorias</p>
       <div class="uk-margin">
         <div class="uk-search uk-search-default">
           <div class="uk-search">

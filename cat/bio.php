@@ -17,7 +17,10 @@
     require '../config/config.php';
     include '../includes/header.php';
   ?>
-  <body>
+  <?php include 'catsidebar.php' ?> <!-- mostra a sidebar //OBJETIVO: menos codigo no meio, e podendo editar mais facilmente no futuro -->
+  <div class="cat uk-align-right">
+    <hr class="top">
+    <p class="p18" ><a href="../index.php">Categorias</a><span uk-icon="icon: chevron-double-right"></span> Biologia</p>
     <div class="uk-margin">
       <div class="uk-search uk-search-default">
         <div class="uk-search">
@@ -28,8 +31,9 @@
         <button type="submit" name="button" class="uk-button uk-button-secondary" onclick="catClear()" >Limpar Filtros</button>
       </div>
     </div>
-    <div class="">
-      <table class="uk-table uk-table-striped uk-table-responsive">
+  </div>
+  <div class="">
+    <table class="uk-table uk-table-striped uk-table-responsive uk-float-right" style="width: 84%;">
           <tr><td></td><td>#</td><td>ISBN</td><td>Título</td><td>Autor</td><td></td></tr>
           <?php
               //Estabelece a ligação com o mysql ALTERNATIVA AO LOGIN COM INCLUDE

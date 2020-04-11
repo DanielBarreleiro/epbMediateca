@@ -6,7 +6,7 @@
 .sidetop{
   border-top: 3.5px solid #4cacff;
   margin-bottom: -10px;
-  width: 120%;
+  width: 180%;
 }
 .p18{
   font-size: 18px;
@@ -23,7 +23,7 @@
   width: 253px;
 }
 .sidebar{
-  padding: 20px 0px 0px 50px;
+  padding: 20px 50px 0px 20px;
   color: #4cacff;
 }
 .navbar{
@@ -58,6 +58,25 @@ footer{
 footer {
   margin-top: 30%;
 }*/
+/*CATEGORIAS*/
+.catsidetop{
+  border-top: 3.5px solid #4cacff;
+  margin-bottom: -10px;
+  width: 120%;
+}
+.catsidebar{
+  width: 10%;
+  padding: 20px 0px 0px 20px;
+  color: #4cacff;
+  margin: 0;
+}
+.cat{
+  padding: 20px 0px;
+  min-width: 82%;
+  color: #4cacff;
+  padding-right: 2%;
+}
+
 /*LOGIN*/
 .login{
   padding: 20px 0px;
