@@ -101,6 +101,7 @@ footer {
     visibility: hidden;
   }
 }
+/*ADMIN*/
 .tlivros{
   padding: 20px 20px 0px 20px;
   border-right: 2px solid #4cacff;
@@ -143,4 +144,21 @@ footer {
 }
 .admindashico{
   width: 30%;
+}
+.zone{
+  padding: 20px 0px;
+  min-width: 84%;
+  color: #4cacff;
+  padding-right: 2%;
+}
+.zonesidetop{
+  border-top: 3.5px solid #4cacff;
+  margin-bottom: -10px;
+  width: 120%;
+}
+.zonesidebar{
+  width: 9%;
+  padding: 20px 0px 0px 20px;
+  color: #4cacff;
+  margin: 0;
 }

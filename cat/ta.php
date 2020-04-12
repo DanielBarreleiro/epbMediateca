@@ -35,7 +35,7 @@
     </div>
     <div class="">
       <table class="uk-table uk-table-striped uk-table-responsive uk-float-right uk-margin-right" style="width: 82.7%;">
-          <tr><td></td><td>#</td><td>ISBN</td><td>Título</td><td>Autor</td><td></td></tr>
+          <tr><td></td><td>#</td><td>Referência</td><td>Título</td><td>Autor</td><td></td></tr>
           <?php
               //Estabelece a ligação com o mysql ALTERNATIVA AO LOGIN COM INCLUDE
               mysqli_set_charset($con,"utf8"); // resolve a questão dos acentos e cedilhas

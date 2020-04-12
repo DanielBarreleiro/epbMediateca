@@ -48,18 +48,36 @@ if ($_SESSION['delmsg'] == "Deleted") {
 include 'header/header.php';
 ?>
   <body>
-    <div class="uk-margin">
-      <div class="uk-search uk-search-default">
-        <div class="uk-search">
-          <span uk-search-icon></span>
-          <input id="catInput" class="uk-search-input" type="search" placeholder="Pesquisar...">
+    <div class="zonesidebar uk-align-left">
+      <hr class="zonesidetop">
+      <ul style="font-size: 90%;">
+        <li><a href="#">Livros</a></li>
+        <li><a href="#">Requisitar</a></li>
+        <li><a href="#">Devoluções</a></li>
+        <li><span uk-icon="icon: chevron-double-right"></span>Por Devolver</li>
+        <li><a href="#">Alunos Registados</a></li>
+        <hr>
+        <li><a href="#">Adiconar Livro</a></li>
+        <li><a href="#">Adicionar Autor</a></li>
+        <li><a href="#">Adicionar Categoria</a></li>
+      </ul>
+    </div>
+    <div class="zone uk-align-right">
+      <hr class="top">
+      <p class="p18" ><a href="../index.php">Painel Admin </a><span uk-icon="icon: chevron-double-right"></span> Por Devolver</p>
+      <div class="">
+        <div class="uk-search uk-search-default">
+          <div class="uk-search">
+            <span uk-search-icon></span>
+            <input id="catInput" class="uk-search-input" type="search" placeholder="Pesquisar...">
+          </div>
+          <button type="submit" name="button" class="uk-button uk-button-primary" onclick="catSearch()" >Pesquisar</button>
+          <button type="submit" name="button" class="uk-button uk-button-secondary" onclick="catClear()" >Limpar Filtros</button>
         </div>
-        <button type="submit" name="button" class="uk-button uk-button-primary" onclick="catSearch()" >Pesquisar</button>
-        <button type="submit" name="button" class="uk-button uk-button-secondary" onclick="catClear()" >Limpar Filtros</button>
       </div>
     </div>
     <div class="">
-      <table class="uk-table uk-table-striped uk-table-responsive">
+      <table class="uk-table uk-table-striped uk-table-responsive uk-float-right" style="width: 86%;">
           <tr><td></td><td>#</td><td>ISBN</td><td>Título</td><td>Autor</td><td>Categoria</td><td>-  -</td><td></td></tr>
           <?php
               //Estabelece a ligação com o mysql ALTERNATIVA AO LOGIN COM INCLUDE
@@ -78,8 +96,8 @@ include 'header/header.php';
                 echo "<td>" . $dados['ISBNNumber']. "</td>";
                 echo "<td>" . $dados['BookName']. "</td>";
                 echo "<td style='width: 30%;'>" . $dados['AuthorName']. "</td>";
-                echo "<td>" . $dados['CategoryName']. "</td>";
-                echo "<td>" . "<a href='edit-book.php?bookid=" . $dados['bookid'] . "'><button class='uk-button uk-button-primary'><span uk-icon='icon: pencil'> </span> Editar</button>" . "<a href='livros.php?del=" . $dados['bookid'] . "'><button class='uk-button uk-button-danger'><span uk-icon='icon: trash'> </span> Eliminar</button>" . "</td>";
+                echo "<td style='width: 15%;'>" . $dados['CategoryName']. "</td>";
+                echo "<td style='width: 20%;'>" . "<a href='edit_book.php?bookid=" . $dados['bookid'] . "'><button class='uk-button uk-button-primary' style='width: 95%;'><span uk-icon='icon: pencil'> </span> Editar</button>" . "<div style='height: 5px;'></div>" . "<a href='livros.php?del=" . $dados['bookid'] . "'><button class='uk-button uk-button-danger' style='width: 95%;'><span uk-icon='icon: trash'> </span> Eliminar</button>" . "</td>";
                 //Botoes DIFICULADE
                 echo "<td>" . " " . "</td>";
                 echo "</tr>";

@@ -26,7 +26,7 @@ require 'handlers/add_book.php';
         <form action="addbook.php" method="post">
           <div class="uk-margin">
             <div class="uk-inline">
-              <span class="uk-form-icon" uk-icon="icon: user"></span>
+              <span class="uk-form-icon" uk-icon="icon: pencil"></span>
               <input class="uk-input" type="text" placeholder="Título" name="bookname" autocomplete="off" uk-tooltip="title: Título do livro; pos: right" required />
             </div>
           </div>
@@ -51,7 +51,7 @@ require 'handlers/add_book.php';
           </div>
           <div class="uk-margin">
             <div class="uk-inline">
-              <span class="uk-form-icon" uk-icon="icon: tag"></span>
+              <span class="uk-form-icon" uk-icon="icon: folder"></span>
               <select class="uk-input uk-select" name="category" uk-tooltip="title: Selecione um item da lista; pos: right" required="required">
                 <option value="">Selecionar Categoria</option>
                 <?php
