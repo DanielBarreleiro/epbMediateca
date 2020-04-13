@@ -15,12 +15,14 @@ if(!empty($_POST["StudentId"])) {
   {
     echo htmlentities($FullName);
     echo "<script>$('#submit').prop('disabled',false);</script>";
+    echo "<script>$('#StudentId').addClass('uk-form-success');</script>";
   }
   else{
     echo "<span style='color:red'> ID inválido / inexistente, por favor insira um ID válido. (Ex: gpsi173670)</span>";
     echo "<br>";
     echo "<span style='color:red'>(O aluno está registado?)</span>";
     echo "<script>$('#submit').prop('disabled',true);</script>";
+    echo "<script>$('#StudentId').addClass('uk-form-danger');</script>";
   }
 }
 

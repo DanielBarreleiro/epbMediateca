@@ -18,9 +18,23 @@ require 'handlers/add_cat.php';
   </head>
   <?php include 'header/header.php' ?>
   <body>
-    <div class="login uk-align-right">
+    <div class="zonesidebar uk-align-left">
+      <hr class="zonesidetop">
+      <ul style="font-size: 90%;">
+        <li><a href="#">Livros</a></li>
+        <li><a href="#">Requisitar</a></li>
+        <li><a href="#">Devoluções</a></li>
+        <li><a href="#">Por Devolver</a></li>
+        <li><a href="#">Alunos Registados</a></li>
+        <hr>
+        <li><a href="#">Adiconar Livro</a></li>
+        <li><a href="#">Adicionar Autor</a></li>
+        <li><span uk-icon="icon: chevron-double-right"></span>Adicionar Categoria</li>
+      </ul>
+    </div>
+    <div class="zone uk-align-right">
       <hr class="top">
-      <p class="p18" >Adicionar Categoria</p>
+      <p class="p18" ><a href="../index.php">Painel Admin </a><span uk-icon="icon: chevron-double-right"></span> Adicionar Categoria</p>
       <div class="loginform">
         <h4 class="">Adicionar Categoria</h4>
         <form action="addcat.php" method="post">

@@ -58,6 +58,15 @@ footer{
 footer {
   margin-top: 30%;
 }*/
+/*ALU Requisitados*/
+.reqalutable{
+  overflow-y: scroll;
+  max-height: 10%;
+}
+.blacktext{
+  color: #333;
+}
+
 /*CATEGORIAS*/
 .catsidetop{
   border-top: 3.5px solid #4cacff;

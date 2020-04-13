@@ -7,6 +7,7 @@
 <?php
   $StudentId = "";
   $ISBNNumber = "";
+  $datadev = "";
 
   if(isset($_POST['req_book'])) {
     //ID Aluno
@@ -15,9 +16,13 @@
     //Código Livro / Referência / ISBNNumber
     $ISBNNumber = strtoupper($_POST["ISBNNumber"]); //converte tudo para maiúsculo
 
+    //Data devolução
+    $datadev = $_POST["datadev"];
+    $datadev = preg_replace("/(\d+)\D+(\d+)\D+(\d+)/", "$1-$2-$3", $datadev);
+
     header("Refresh:2; url=req.php");
 
-    $query = mysqli_query($con, "INSERT INTO tblissuedbookdetails (ISBNNumber, StudentID) VALUES ('$ISBNNumber', '$StudentId')");
+    $query = mysqli_query($con, "INSERT INTO tblissuedbookdetails (ISBNNumber, StudentID, ExpectedDate) VALUES ('$ISBNNumber', '$StudentId', '$datadev')");
     echo "<br>";
     echo '<script>let timerInterval
         swal.fire({

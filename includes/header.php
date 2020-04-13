@@ -2,6 +2,7 @@
 
 if(isset($_SESSION['login']))
 {
+  $sid = $_SESSION['stdid'];
 ?>
 <nav class="uk-navbar-container" uk-navbar>
   <div class="uk-navbar-left">

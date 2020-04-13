@@ -51,10 +51,10 @@ include 'header/header.php';
     <div class="zonesidebar uk-align-left">
       <hr class="zonesidetop">
       <ul style="font-size: 90%;">
-        <li><a href="#">Livros</a></li>
+        <li><span uk-icon="icon: chevron-double-right"></span>Livros</li>
         <li><a href="#">Requisitar</a></li>
         <li><a href="#">Devoluções</a></li>
-        <li><span uk-icon="icon: chevron-double-right"></span>Por Devolver</li>
+        <li><a href="#">Por Devolver</a></li>
         <li><a href="#">Alunos Registados</a></li>
         <hr>
         <li><a href="#">Adiconar Livro</a></li>
@@ -64,7 +64,7 @@ include 'header/header.php';
     </div>
     <div class="zone uk-align-right">
       <hr class="top">
-      <p class="p18" ><a href="../index.php">Painel Admin </a><span uk-icon="icon: chevron-double-right"></span> Por Devolver</p>
+      <p class="p18" ><a href="../index.php">Painel Admin </a><span uk-icon="icon: chevron-double-right"></span> Livros</p>
       <div class="">
         <div class="uk-search uk-search-default">
           <div class="uk-search">

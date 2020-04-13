@@ -33,8 +33,8 @@ require 'includes/form_handlers/login_handler.php';
                 }
                 ?>" required>
                 <br>
-                <?php if (in_array("O primeiro nome tem de ter entre 2 e 25 caracteres<br>", $error_array)) {
-                  echo "O primeiro nome tem de ter entre 2 e 25 caracteres<br>";
+                <?php if (in_array("O primeiro nome tem de ter entre 2 e 60 caracteres<br>", $error_array)) {
+                  echo "O primeiro nome tem de ter entre 2 e 60 caracteres<br>";
                 } ?>
             </div>
           </div>

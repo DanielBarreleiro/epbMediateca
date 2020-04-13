@@ -46,9 +46,23 @@ require 'handlers/req_book.php';
       }
 
     </script>
-    <div class="login uk-align-right">
+    <div class="zonesidebar uk-align-left">
+      <hr class="zonesidetop">
+      <ul style="font-size: 90%;">
+        <li><a href="#">Livros</a></li>
+        <li><span uk-icon="icon: chevron-double-right"></span>Requisitar</li>
+        <li><a href="#">Devoluções</a></li>
+        <li><a href="#">Por Devolver</a></li>
+        <li><a href="#">Alunos Registados</a></li>
+        <hr>
+        <li><a href="#">Adiconar Livro</a></li>
+        <li><a href="#">Adicionar Autor</a></li>
+        <li><a href="#">Adicionar Categoria</a></li>
+      </ul>
+    </div>
+    <div class="zone uk-align-right">
       <hr class="top">
-      <p class="p18" >Requisitar Livro</p>
+      <p class="p18" ><a href="../index.php">Painel Admin </a><span uk-icon="icon: chevron-double-right"></span> Requisitar</p>
       <div class="loginform">
         <h4 class="">Requisitar Livro</h4>
         <form action="req.php" method="post">
@@ -66,6 +80,12 @@ require 'handlers/req_book.php';
             </div>
           </div>
           <span id="get_book_name" style="font-size:16px;"></span>
+          <div class="uk-margin">
+            <div class="uk-inline">
+              <span class="uk-form-icon" uk-icon="icon: calendar"></span>
+              <input class="uk-input" type="date" placeholder="Data Prevista de Devolução" name="datadev" id="datadev" uk-tooltip="title: Escolha a data prevista para devolução; pos: right" required="required" />
+            </div>
+          </div>
           <div class="uk-margin">
             <div class="uk-inline">
             </div>

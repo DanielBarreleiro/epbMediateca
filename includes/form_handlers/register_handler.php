@@ -62,8 +62,8 @@ if(isset($_POST['register_button'])) {
   }
 
 
-  if(strlen($fname) > 25 || strlen($fname) < 2){
-    array_push($error_array, "O nome tem de ter entre 2 e 25 caracteres<br>");
+  if(strlen($fname) > 60 || strlen($fname) < 2){
+    array_push($error_array, "O nome tem de ter entre 2 e 60 caracteres<br>");
   }
 
   $phone_check = mysqli_query($con, "SELECT phone FROM tblstudents WHERE phone='$phone'");
