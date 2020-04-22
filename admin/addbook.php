@@ -21,15 +21,15 @@ require 'handlers/add_book.php';
     <div class="zonesidebar uk-align-left">
       <hr class="zonesidetop">
       <ul style="font-size: 90%;">
-        <li><a href="#">Livros</a></li>
-        <li><a href="#">Requisitar</a></li>
-        <li><a href="#">Devoluções</a></li>
-        <li><a href="#">Por Devolver</a></li>
-        <li><a href="#">Alunos Registados</a></li>
+        <li><a href="livros.php">Livros</a></li>
+        <li><a href="req.php">Requisitar</a></li>
+        <li><a href="dev.php">Devoluções</a></li>
+        <li><a href="pordev.php">Por Devolver</a></li>
+        <li><a href="reg_alu.php">Alunos Registados</a></li>
         <hr>
         <li><span uk-icon="icon: chevron-double-right"></span>Adiconar Livro</li>
-        <li><a href="#">Adicionar Autor</a></li>
-        <li><a href="#">Adicionar Categoria</a></li>
+        <li><a href="addautor.php">Adicionar Autor</a></li>
+        <li><a href="addcat.php">Adicionar Categoria</a></li>
       </ul>
     </div>
     <div class="zone uk-align-right">

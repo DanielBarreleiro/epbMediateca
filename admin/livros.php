@@ -22,14 +22,14 @@ $id = $_GET['del'];
 $sql = "DELETE FROM tblbooks  WHERE id=$id";
 $consulta = mysqli_query($con, $sql);
 $_SESSION['delmsg'] = "Deleted";
-header("Refresh:2; url=livros.php");
+header("Refresh:1; url=livros.php");
 if ($_SESSION['delmsg'] == "Deleted") {
   echo "<br>";
   echo '<script>let timerInterval
       swal.fire({
         title: "Livro Eliminado!",
         icon: "success",
-        timer: 2000,
+        timer: 1000,
         timerProgressBar: true,
         onBeforeOpen: () => {
           swal.showLoading()
@@ -52,14 +52,14 @@ include 'header/header.php';
       <hr class="zonesidetop">
       <ul style="font-size: 90%;">
         <li><span uk-icon="icon: chevron-double-right"></span>Livros</li>
-        <li><a href="#">Requisitar</a></li>
-        <li><a href="#">Devoluções</a></li>
-        <li><a href="#">Por Devolver</a></li>
-        <li><a href="#">Alunos Registados</a></li>
+        <li><a href="req.php">Requisitar</a></li>
+        <li><a href="dev.php">Devoluções</a></li>
+        <li><a href="pordev.php">Por Devolver</a></li>
+        <li><a href="reg_alu.php">Alunos Registados</a></li>
         <hr>
-        <li><a href="#">Adiconar Livro</a></li>
-        <li><a href="#">Adicionar Autor</a></li>
-        <li><a href="#">Adicionar Categoria</a></li>
+        <li><a href="addbook.php">Adiconar Livro</a></li>
+        <li><a href="addautor.php">Adicionar Autor</a></li>
+        <li><a href="addcat.php">Adicionar Categoria</a></li>
       </ul>
     </div>
     <div class="zone uk-align-right">
@@ -97,7 +97,18 @@ include 'header/header.php';
                 echo "<td>" . $dados['BookName']. "</td>";
                 echo "<td style='width: 30%;'>" . $dados['AuthorName']. "</td>";
                 echo "<td style='width: 15%;'>" . $dados['CategoryName']. "</td>";
-                echo "<td style='width: 20%;'>" . "<a href='edit_book.php?bookid=" . $dados['bookid'] . "'><button class='uk-button uk-button-primary' style='width: 95%;'><span uk-icon='icon: pencil'> </span> Editar</button>" . "<div style='height: 5px;'></div>" . "<a href='livros.php?del=" . $dados['bookid'] . "'><button class='uk-button uk-button-danger' style='width: 95%;'><span uk-icon='icon: trash'> </span> Eliminar</button>" . "</td>";
+                echo "<td style='width: 20%;'>" . "<a href='edit_book.php?bookid=" . $dados['bookid'] . "'><button class='uk-button uk-button-primary' style='width: 95%;'><span uk-icon='icon: pencil'> </span> Editar</button>" . "<div style='height: 5px;'></div>" . /*"<a href='livros.php?del=" . $dados['bookid'] . "'>*/ "<a id='js-modal-confirm' href='#'><button class='uk-button uk-button-danger' style='width: 95%;'><span uk-icon='icon: trash'> </span> Eliminar</button></a>" . "</td>";
+                echo "<script>
+                  UIkit.util.on('#js-modal-confirm', 'click', function (e) {
+                    e.preventDefault();
+                    e.target.blur();
+                    UIkit.modal.confirm('Quer mesmo eliminar este livro?').then(function () {
+                      location.href = 'livros.php?del=" . $dados['bookid'] ."';
+                      console.log('Confirmed.')
+                    }, function () {
+                      console.log('Rejected.')
+                    });
+                  });</script>";
                 //Botoes DIFICULADE
                 echo "<td>" . " " . "</td>";
                 echo "</tr>";

@@ -100,10 +100,10 @@ footer {
   padding: 2%;
 }
 .sideimg{
-  margin-top: -20%;
+  margin-top: -23%;
   margin-right: 20%;
   float: right;
-  height: 30%;
+  height: 300px;
 }
 @media only screen and (max-width: 1060px) {
   .sideimg{

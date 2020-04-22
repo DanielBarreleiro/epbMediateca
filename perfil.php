@@ -65,5 +65,7 @@ require 'includes/form_handlers/perfil_handler.php';
           <input class="uk-button uk-button-default uk-button-primary" type="submit" name="update_button" value="Submeter">
         </form>
       </div>
+      <img class="sideimg" src="img/profile.svg" alt="">
     </div>
   </body>
+</html>

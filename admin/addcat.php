@@ -21,14 +21,14 @@ require 'handlers/add_cat.php';
     <div class="zonesidebar uk-align-left">
       <hr class="zonesidetop">
       <ul style="font-size: 90%;">
-        <li><a href="#">Livros</a></li>
-        <li><a href="#">Requisitar</a></li>
-        <li><a href="#">Devoluções</a></li>
-        <li><a href="#">Por Devolver</a></li>
-        <li><a href="#">Alunos Registados</a></li>
+        <li><a href="livros.php">Livros</a></li>
+        <li><a href="req.php">Requisitar</a></li>
+        <li><a href="dev.php">Devoluções</a></li>
+        <li><a href="pordev.php">Por Devolver</a></li>
+        <li><a href="reg_alu.php">Alunos Registados</a></li>
         <hr>
-        <li><a href="#">Adiconar Livro</a></li>
-        <li><a href="#">Adicionar Autor</a></li>
+        <li><a href="addbook.php">Adiconar Livro</a></li>
+        <li><a href="addautor.php">Adicionar Autor</a></li>
         <li><span uk-icon="icon: chevron-double-right"></span>Adicionar Categoria</li>
       </ul>
     </div>

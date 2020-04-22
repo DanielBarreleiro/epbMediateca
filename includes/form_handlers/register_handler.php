@@ -1,9 +1,3 @@
-<html>
-  <head>
-    <link href="https://fonts.googleapis.com/css?family=Ubuntu&display=swap" rel="stylesheet">
-    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9.8.2/dist/sweetalert2.all.min.js"></script>
-    <link rel='stylesheet' href='https://cdn.jsdelivr.net/npm/sweetalert2@9.8.2/dist/sweetalert2.min.css'>
-  </head>
 <?php
 //declaração de variáveis
 $fname = ""; //primeiro nome
@@ -128,4 +122,3 @@ if(isset($_POST['register_button'])) {
 }
 
  ?>
-</html>

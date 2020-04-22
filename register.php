@@ -1,6 +1,5 @@
 <?php
 require 'config/config.php';
-require 'includes/form_handlers/register_handler.php';
 require 'includes/form_handlers/login_handler.php';
 ?>
 <!DOCTYPE html>
@@ -17,6 +16,7 @@ require 'includes/form_handlers/login_handler.php';
   </head>
   <?php include 'includes/header.php' ?>
   <body>
+    <?php require 'includes/form_handlers/register_handler.php'; ?>
     <div class="login uk-align-right">
       <hr class="top">
       <p class="p18" >Registar</p>
@@ -98,6 +98,7 @@ require 'includes/form_handlers/login_handler.php';
         </form>
         <p>Já tens conta? Faz login <a href="login.php">aqui</a></p>
       </div>
+      <img class="sideimg" src="img/register.svg" alt="">
     </div>
   </body>
 </html>

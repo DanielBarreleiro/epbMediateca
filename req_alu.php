@@ -19,7 +19,7 @@ require 'config/config.php';
       <hr class="top">
       <p class="p18" >Livros Requisitados</p>
       <div class="">
-        <table class="uk-table uk-table-striped uk-table-responsive uk-float-right reqalutable" style="width: 86%;">
+        <table class="uk-table uk-table-striped uk-table-responsive uk-float-right reqalutable" style="width: 95%;">
           <tr><td></td><td>#</td><td>Referência</td><td>Título</td><td>Data de Requisição</td><td>Data de Devolução Prevista</td><td>Estado</td></tr>
           <?php
               //Estabelece a ligação com o mysql ALTERNATIVA AO LOGIN COM INCLUDE
@@ -32,9 +32,15 @@ require 'config/config.php';
               }
               $cnt = 1;
               while( $dados = mysqli_fetch_assoc($consulta) ){
+                $today = date('d/m/Y');
                 //converter as data do formato MM-DD-YY para DD/MM/YY
                 $IssuesDate = preg_replace("/(\d+)\D+(\d+)\D+(\d+)/", "$3/$2/$1", $dados['IssuesDate']);
                 $ExpectedDate = preg_replace("/(\d+)\D+(\d+)\D+(\d+)/", "$3/$2/$1", $dados['ExpectedDate']);
+
+                //Se a data de devolução for ultrapassada, a linha fica a vermelho
+                if ($today > $ExpectedDate AND $dados['ReturnStatus'] == 0) {
+                  echo "<tr style='background-color: #f0506e6b;' >";
+                }
 
                 //converter o estado de "0" para "Por devolver" e "1" para "Devolvido"
                 if ($dados['ReturnStatus'] == 0) {

@@ -1,6 +1,3 @@
-<?php
-require '../config/config.php';
-?>
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
   <head>
@@ -11,29 +8,21 @@ require '../config/config.php';
     <link href="../css/uikit.css" rel="stylesheet" />
 	  <link href="../css/master.css" rel="stylesheet" />
     <link href="https://fonts.googleapis.com/css?family=Ubuntu&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9.8.2/dist/sweetalert2.all.min.js"></script>
+    <link rel='stylesheet' href='https://cdn.jsdelivr.net/npm/sweetalert2@9.8.2/dist/sweetalert2.min.css'>
     <script src="../js/uikit.js" charset="utf-8"></script>
     <script src="../js/uikit-icons.js" charset="utf-8"></script>
   </head>
-  <?php include 'header/header.php' ?>
+  <?php
+    require '../config/config.php';
+    include '../includes/header.php';
+  ?>
   <body>
-    <div class="zonesidebar uk-align-left">
-      <hr class="zonesidetop">
-      <ul style="font-size: 90%;">
-        <li><a href="livros.php">Livros</a></li>
-        <li><a href="req.php">Requisitar</a></li>
-        <li><span uk-icon="icon: chevron-double-right"></span>Devoluções</li>
-        <li><a href="pordev.php">Por Devolver</a></li>
-        <li><a href="reg_alu.php">Alunos Registados</a></li>
-        <hr>
-        <li><a href="addbook.php">Adiconar Livro</a></li>
-        <li><a href="addautor.php">Adicionar Autor</a></li>
-        <li><a href="addcat.php">Adicionar Categoria</a></li>
-      </ul>
-    </div>
-    <div class="zone uk-align-right">
+    <?php include 'catsidebar.php' ?> <!-- mostra a sidebar //OBJETIVO: menos codigo no meio, e podendo editar mais facilmente no futuro -->
+    <div class="cat uk-align-right">
       <hr class="top">
-      <p class="p18" ><a href="../index.php">Painel Admin </a><span uk-icon="icon: chevron-double-right"></span> Devoluções</p>
-      <div class="">
+      <p class="p18" ><a href="../index.php">Categorias</a><span uk-icon="icon: chevron-double-right"></span> Línguas</p>
+      <div class="uk-margin">
         <div class="uk-search uk-search-default">
           <div class="uk-search">
             <span uk-search-icon></span>
@@ -45,12 +34,12 @@ require '../config/config.php';
       </div>
     </div>
     <div class="">
-      <table class="uk-table uk-table-striped uk-table-responsive uk-float-right" style="width: 86%;">
-          <tr><td></td><td>#</td><td>Referência</td><td>Nº Aluno</td><td>Multa</td><td>Data de Devolução</td></tr>
+      <table class="uk-table uk-table-striped uk-table-responsive uk-float-right" style="width: 84%;">
+          <tr><td></td><td>#</td><td>Referência</td><td>Título</td><td>Autor</td><td></td></tr>
           <?php
               //Estabelece a ligação com o mysql ALTERNATIVA AO LOGIN COM INCLUDE
               mysqli_set_charset($con,"utf8"); // resolve a questão dos acentos e cedilhas
-              $sql = "SELECT * FROM tblissuedbookdetails WHERE ReturnStatus = 1";
+              $sql = "SELECT tblbooks.BookName,tblauthors.AuthorName,tblbooks.ISBNNumber,tblbooks.id as bookid from tblbooks JOIN tblauthors ON tblauthors.id = tblbooks.AuthorId WHERE CatId = 18 OR CatId = 19 OR CatId = 22";
               $consulta = mysqli_query($con, $sql);
               if( !$consulta ){
                   echo "Erro ao realizar a consulta.";
@@ -61,11 +50,10 @@ require '../config/config.php';
                 echo "<tr>";
                 echo "<td>" . " " . "</td>";
                 echo "<td>" . $cnt . "</td>";
-                echo "<td>" . $dados['ISBNNumber'] . "</td>";
-                echo "<td>" . $dados['StudentID'] . "</td>";
-                echo "<td>" . $dados['fine'] . "€</td>";
-                $ReturnDate = preg_replace("/(\d+)\D+(\d+)\D+(\d+)/", "$3/$2/$1", $dados['ReturnDate']);
-                echo "<td>" . $ReturnDate . "</td>";
+                echo "<td>" . $dados['ISBNNumber']. "</td>";
+                echo "<td>" . $dados['BookName']. "</td>";
+                echo "<td>" . $dados['AuthorName']. "</td>";
+                echo "<td>" . " " . "</td>";
                 echo "</tr>";
                 $cnt += 1;
               }

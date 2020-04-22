@@ -19,15 +19,15 @@ require '../config/config.php';
     <div class="zonesidebar uk-align-left">
       <hr class="zonesidetop">
       <ul style="font-size: 90%;">
-        <li><a href="#">Livros</a></li>
-        <li><a href="#">Requisitar</a></li>
-        <li><a href="#">Devoluções</a></li>
+        <li><a href="livros.php">Livros</a></li>
+        <li><a href="req.php">Requisitar</a></li>
+        <li><a href="dev.php">Devoluções</a></li>
         <li><span uk-icon="icon: chevron-double-right"></span>Por Devolver</li>
-        <li><a href="#">Alunos Registados</a></li>
+        <li><a href="reg_alu.php">Alunos Registados</a></li>
         <hr>
-        <li><a href="#">Adiconar Livro</a></li>
-        <li><a href="#">Adicionar Autor</a></li>
-        <li><a href="#">Adicionar Categoria</a></li>
+        <li><a href="addbook.php">Adiconar Livro</a></li>
+        <li><a href="addautor.php">Adicionar Autor</a></li>
+        <li><a href="addcat.php">Adicionar Categoria</a></li>
       </ul>
     </div>
     <div class="zone uk-align-right">
@@ -74,8 +74,10 @@ require '../config/config.php';
                   UIkit.util.on('#js-modal-prompt', 'click', function (e) {
                        e.preventDefault();
                        e.target.blur();
-                       UIkit.modal.prompt('Multa: (em €)', '').then(function (name) {
-                           console.log('Prompted:', 0)
+                       UIkit.modal.prompt('Multa: (em €)', '').then(function (value) {
+                           document.cookie = value;
+                           console.log('Prompted:', value)
+                           console.log('Prompted2:', " . $_COOKIE[value] .")
                        });
                    });
                   </script>";
