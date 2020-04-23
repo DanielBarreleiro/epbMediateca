@@ -39,7 +39,7 @@
           <?php
               //Estabelece a ligação com o mysql ALTERNATIVA AO LOGIN COM INCLUDE
               mysqli_set_charset($con,"utf8"); // resolve a questão dos acentos e cedilhas
-              $sql = "SELECT tblbooks.BookName,tblauthors.AuthorName,tblbooks.ISBNNumber,tblbooks.id as bookid from tblbooks JOIN tblauthors ON tblauthors.id = tblbooks.AuthorId WHERE CatId = 18 OR CatId = 19 OR CatId = 22";
+              $sql = "SELECT tblbooks.BookName,tblauthors.AuthorName,tblbooks.ISBNNumber,tblbooks.id as bookid from tblbooks JOIN tblauthors ON tblauthors.id = tblbooks.AuthorId WHERE CatId = 22";
               $consulta = mysqli_query($con, $sql);
               if( !$consulta ){
                   echo "Erro ao realizar a consulta.";

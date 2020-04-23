@@ -46,7 +46,7 @@ require '../config/config.php';
     </div>
     <div class="">
       <table class="uk-table uk-table-striped uk-table-responsive uk-float-right" style="width: 86%;">
-          <tr><td></td><td>#</td><td>Referência</td><td>Nº Aluno</td><td>Multa</td><td>Data de Devolução</td></tr>
+          <tr><td></td><td>#</td><td>Referência</td><td>Nº Aluno</td><td>Data de Devolução</td></tr>
           <?php
               //Estabelece a ligação com o mysql ALTERNATIVA AO LOGIN COM INCLUDE
               mysqli_set_charset($con,"utf8"); // resolve a questão dos acentos e cedilhas
@@ -63,7 +63,6 @@ require '../config/config.php';
                 echo "<td>" . $cnt . "</td>";
                 echo "<td>" . $dados['ISBNNumber'] . "</td>";
                 echo "<td>" . $dados['StudentID'] . "</td>";
-                echo "<td>" . $dados['fine'] . "€</td>";
                 $ReturnDate = preg_replace("/(\d+)\D+(\d+)\D+(\d+)/", "$3/$2/$1", $dados['ReturnDate']);
                 echo "<td>" . $ReturnDate . "</td>";
                 echo "</tr>";

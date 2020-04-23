@@ -3,7 +3,6 @@
   <head>
     <meta charset="utf-8">
     <title></title>
-    <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="../css/uikit.css" rel="stylesheet" />
 	  <link href="../css/master.css" rel="stylesheet" />
@@ -97,7 +96,7 @@ include 'header/header.php';
                 echo "<td>" . $dados['BookName']. "</td>";
                 echo "<td style='width: 30%;'>" . $dados['AuthorName']. "</td>";
                 echo "<td style='width: 15%;'>" . $dados['CategoryName']. "</td>";
-                echo "<td style='width: 20%;'>" . "<a href='edit_book.php?bookid=" . $dados['bookid'] . "'><button class='uk-button uk-button-primary' style='width: 95%;'><span uk-icon='icon: pencil'> </span> Editar</button>" . "<div style='height: 5px;'></div>" . /*"<a href='livros.php?del=" . $dados['bookid'] . "'>*/ "<a id='js-modal-confirm' href='#'><button class='uk-button uk-button-danger' style='width: 95%;'><span uk-icon='icon: trash'> </span> Eliminar</button></a>" . "</td>";
+                echo "<td style='width: 20%;'>" . "<a href='edit_book.php?bookid=" . $dados['bookid'] . "'><button class='uk-button uk-button-primary' style='width: 95%;'><span uk-icon='icon: pencil'> </span> Editar</button>" . "<div style='height: 5px;'></div>" . "<a id='js-modal-confirm' href='#'><button class='uk-button uk-button-danger' style='width: 95%;'><span uk-icon='icon: trash'> </span> Eliminar</button></a>" . "</td>";
                 echo "<script>
                   UIkit.util.on('#js-modal-confirm', 'click', function (e) {
                     e.preventDefault();

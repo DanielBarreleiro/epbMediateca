@@ -21,7 +21,7 @@
     <?php include 'catsidebar.php' ?> <!-- mostra a sidebar //OBJETIVO: menos codigo no meio, e podendo editar mais facilmente no futuro -->
     <div class="cat uk-align-right">
       <hr class="top">
-      <p class="p18" ><a href="../index.php">Categorias</a><span uk-icon="icon: chevron-double-right"></span> Línguas</p>
+      <p class="p18" ><a href="../index.php">Categorias</a><span uk-icon="icon: chevron-double-right"></span> Francês</p>
       <div class="uk-margin">
         <div class="uk-search uk-search-default">
           <div class="uk-search">
@@ -39,7 +39,7 @@
           <?php
               //Estabelece a ligação com o mysql ALTERNATIVA AO LOGIN COM INCLUDE
               mysqli_set_charset($con,"utf8"); // resolve a questão dos acentos e cedilhas
-              $sql = "SELECT tblbooks.BookName,tblauthors.AuthorName,tblbooks.ISBNNumber,tblbooks.id as bookid from tblbooks JOIN tblauthors ON tblauthors.id = tblbooks.AuthorId WHERE CatId = 18 OR CatId = 19 OR CatId = 22";
+              $sql = "SELECT tblbooks.BookName,tblauthors.AuthorName,tblbooks.ISBNNumber,tblbooks.id as bookid from tblbooks JOIN tblauthors ON tblauthors.id = tblbooks.AuthorId WHERE CatId = 18";
               $consulta = mysqli_query($con, $sql);
               if( !$consulta ){
                   echo "Erro ao realizar a consulta.";

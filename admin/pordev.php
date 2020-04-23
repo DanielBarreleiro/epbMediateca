@@ -6,14 +6,48 @@ require '../config/config.php';
   <head>
     <meta charset="utf-8">
     <title></title>
-    <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="../css/uikit.css" rel="stylesheet" />
 	  <link href="../css/master.css" rel="stylesheet" />
     <link href="https://fonts.googleapis.com/css?family=Ubuntu&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9.8.2/dist/sweetalert2.all.min.js"></script>
+    <link rel='stylesheet' href='https://cdn.jsdelivr.net/npm/sweetalert2@9.8.2/dist/sweetalert2.min.css'>
     <script src="../js/uikit.js" charset="utf-8"></script>
     <script src="../js/uikit-icons.js" charset="utf-8"></script>
   </head>
+  <?php
+    //-----
+    if(isset($_GET['dev']))
+    {
+    $today = date('Y-m-d');
+    $id = $_GET['dev'];
+    $sql = "UPDATE tblissuedbookdetails SET ReturnDate = '$today', ReturnStatus = 1 WHERE tblissuedbookdetails.id = $id";
+    $consulta = mysqli_query($con, $sql);
+    $_SESSION['devmsg'] = "Returned";
+    header("Refresh:1; url=pordev.php");
+    if ($_SESSION['devmsg'] == "Returned") {
+      echo "<br>";
+      echo '<script>let timerInterval
+          swal.fire({
+            title: "Livro Devolvido!",
+            icon: "success",
+            timer: 1000,
+            timerProgressBar: true,
+            onBeforeOpen: () => {
+              swal.showLoading()
+            },
+            onClose: () => {
+              clearInterval(timerInterval)
+            }
+          }).then((result) => {
+            /* Read more about handling dismissals below */
+            if (result.dismiss === swal.DismissReason.timer) {
+              console.log("I was closed by the timer")
+            }
+          })</script>';
+    }
+    }
+   ?>
   <?php include 'header/header.php' ?>
   <body>
     <div class="zonesidebar uk-align-left">
@@ -50,7 +84,7 @@ require '../config/config.php';
           <?php
               //Estabelece a ligação com o mysql ALTERNATIVA AO LOGIN COM INCLUDE
               mysqli_set_charset($con,"utf8"); // resolve a questão dos acentos e cedilhas
-              $sql = "SELECT tblissuedbookdetails.ISBNNumber, tblissuedbookdetails.StudentID, tblissuedbookdetails.IssuesDate, tblissuedbookdetails.ExpectedDate, tblissuedbookdetails.ReturnStatus, tblstudents.FullName from tblissuedbookdetails join tblstudents on tblstudents.StudentId = tblissuedbookdetails.StudentID WHERE ReturnStatus = 0";
+              $sql = "SELECT tblissuedbookdetails.id, tblissuedbookdetails.ISBNNumber, tblissuedbookdetails.StudentID, tblissuedbookdetails.IssuesDate, tblissuedbookdetails.ExpectedDate, tblissuedbookdetails.ReturnStatus, tblstudents.FullName from tblissuedbookdetails join tblstudents on tblstudents.StudentId = tblissuedbookdetails.StudentID join tblbooks on tblissuedbookdetails.id = tblbooks.id WHERE ReturnStatus = 0";
               $consulta = mysqli_query($con, $sql);
               if( !$consulta ){
                   echo "Erro ao realizar a consulta.";
@@ -69,18 +103,18 @@ require '../config/config.php';
                 //converter as data do formato MM-DD-YY para DD/MM/YY
                 $ExpectedDate = preg_replace("/(\d+)\D+(\d+)\D+(\d+)/", "$3/$2/$1", $dados['ExpectedDate']);
                 echo "<td>" . $ExpectedDate .  "</td>";
-                echo "<td>" . "<a id='js-modal-prompt' class='uk-button uk-button-primary' href='#'>Devolver</a>" . "</td>";
-                echo "<script type='text/javascript'>
-                  UIkit.util.on('#js-modal-prompt', 'click', function (e) {
-                       e.preventDefault();
-                       e.target.blur();
-                       UIkit.modal.prompt('Multa: (em €)', '').then(function (value) {
-                           document.cookie = value;
-                           console.log('Prompted:', value)
-                           console.log('Prompted2:', " . $_COOKIE[value] .")
-                       });
-                   });
-                  </script>";
+                echo "<td>" . "<a id='js-modal-confirm' href='#'><button class='uk-button uk-button-primary'><span uk-icon='icon: trash'> </span> Devolver</button></a>" . "</td>";
+                echo "<script>
+                  UIkit.util.on('#js-modal-confirm', 'click', function (e) {
+                    e.preventDefault();
+                    e.target.blur();
+                    UIkit.modal.confirm('Devolver livro?').then(function () {
+                      location.href = 'pordev.php?dev=" . $dados['id'] ."';
+                      console.log('Confirmed.')
+                    }, function () {
+                      console.log('Rejected.')
+                    });
+                  });</script>";
                 echo "</tr>";
                 $cnt += 1;
               }

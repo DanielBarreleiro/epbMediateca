@@ -1,18 +1,3 @@
-<!--<div class="catsidebar uk-align-left">
-  <hr class="catsidetop">
-  <ul>
-    <li><a href="#">Categoria</a></li>
-    <li><a href="#">Categoria</a></li>
-    <li><a href="#">Categoria</a></li>
-    <li><a href="#">Categoria</a></li>
-    <li><a href="#">Categoria</a></li>
-    <li><a href="#">Categoria</a></li>
-    <li><a href="#">Categoria</a></li>
-  </ul>
-</div>-->
-
-<!--Enquanto não tiver os links sem ".php" não usar oque está em baixo-->
-
 <div class="catsidebar uk-align-left">
   <hr class="catsidetop">
   <ul>

@@ -35,23 +35,23 @@
       <!--START Category items-->
       <div id="catDiv" style="margin-left: 5%;">
         <section class="itemCategoria">
-          <a href="cat/inf.php"><img class="imgcatalogo" src="img/informatica.svg" alt="tech">
+          <a href="cat/Informática"><img class="imgcatalogo" src="img/informatica.svg" alt="tech">
           <p class="p18">Informática</p></a>
         </section>
         <section class="itemCategoria">
-          <a href="cat/ta.php"><img class="imgcatalogo" src="img/notfound.svg" alt="tech">
+          <a href="cat/TecnologiasAdministrativas"><img class="imgcatalogo" src="img/notfound.svg" alt="tech">
           <p class="p18">Tecnologias Administrativas</p></a>
         </section>
         <section class="itemCategoria">
-          <a href="cat/dg.php"><img class="imgcatalogo" src="img/design.svg" alt="tech">
+          <a href="cat/DesignGráfico"><img class="imgcatalogo" src="img/design.svg" alt="tech">
           <p class="p18">Design Gráfico</p></a>
         </section>
         <section class="itemCategoria">
-          <a href="cat/cc.php"><img class="imgcatalogo" src="img/construcao_civil.svg" alt="tech">
+          <a href="cat/ConstruçãoCivil"><img class="imgcatalogo" src="img/construcao_civil.svg" alt="tech">
           <p class="p18">Construção Civil</p></a>
         </section>
         <section class="itemCategoria">
-          <a href="cat/ctb.php"><img class="imgcatalogo" src="img/contabilidade_gestao.svg" alt="tech">
+          <a href="cat/ContabilidadeeGestão"><img class="imgcatalogo" src="img/contabilidade_gestao.svg" alt="tech">
           <p class="p18">Contabilidade e Gestão</p></a>
         </section>
         <span id="seeMore"></span>
@@ -60,35 +60,35 @@
         </style>
         <span id="more">
         <section class="itemCategoria">
-          <a href="cat/bio.php"><img class="imgcatalogo" src="img/biologia.svg" alt="tech">
+          <a href="cat/Biologia"><img class="imgcatalogo" src="img/biologia.svg" alt="tech">
           <p class="p18">Biologia</p></a>
         </section>
         <section class="itemCategoria">
-          <a href="cat/dir.php"><img class="imgcatalogo" src="img/direito.svg" alt="tech">
+          <a href="cat/Direito"><img class="imgcatalogo" src="img/direito.svg" alt="tech">
           <p class="p18">Direito</p></a>
         </section>
         <section class="itemCategoria">
-          <a href="cat/eduinf.php"><img class="imgcatalogo" src="img/notfound.svg" alt="tech">
+          <a href="cat/EducaçãoInformação"><img class="imgcatalogo" src="img/notfound.svg" alt="tech">
           <p class="p18">Educação Informação</p></a>
         </section>
         <section class="itemCategoria">
-          <a href="cat/ele.php"><img class="imgcatalogo" src="img/eletronica.svg" alt="tech">
+          <a href="cat/Eletrónica"><img class="imgcatalogo" src="img/eletronica.svg" alt="tech">
           <p class="p18">Eletrónica</p></a>
         </section>
         <section class="itemCategoria">
-          <a href="cat/fq.php"><img class="imgcatalogo" src="img/fisica_quimica.svg" alt="tech">
+          <a href="cat/Física-Química"><img class="imgcatalogo" src="img/fisica_quimica.svg" alt="tech">
           <p class="p18">Física-Química</p></a>
         </section>
         <section class="itemCategoria">
-          <a href="cat/ling.php"><img class="imgcatalogo" src="img/linguas.svg" alt="tech">
+          <a href="cat/Línguas"><img class="imgcatalogo" src="img/linguas.svg" alt="tech">
           <p class="p18">Línguas</p></a>
         </section>
         <section class="itemCategoria">
-          <a href="cat/mark.php"><img class="imgcatalogo" src="img/marketing.svg" alt="tech">
+          <a href="cat/Marketing"><img class="imgcatalogo" src="img/marketing.svg" alt="tech">
           <p class="p18">Marketing</p></a>
         </section>
         <section class="itemCategoria">
-          <a href="cat/mat.php"><img class="imgcatalogo" src="img/matematica.svg" alt="tech">
+          <a href="cat/Matemática"><img class="imgcatalogo" src="img/matematica.svg" alt="tech">
           <p class="p18">Matemática</p></a>
         </section>
         </span>
