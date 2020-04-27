@@ -11,6 +11,11 @@
     <link rel='stylesheet' href='https://cdn.jsdelivr.net/npm/sweetalert2@9.8.2/dist/sweetalert2.min.css'>
     <script src="../js/uikit.js" charset="utf-8"></script>
     <script src="../js/uikit-icons.js" charset="utf-8"></script>
+    <script language="JavaScript" type="text/javascript">
+      function checkDelete(){
+          return confirm('Quer mesmo eliminar este livro?');
+      }
+    </script>
   </head>
 <?php
 require '../config/config.php';
@@ -20,7 +25,7 @@ if(isset($_GET['del']))
 $id = $_GET['del'];
 $sql = "DELETE FROM tblbooks  WHERE id=$id";
 $consulta = mysqli_query($con, $sql);
-$_SESSION['delmsg'] = "Deleted";
+$_SESSION['delmsg'] = 'Deleted';
 header("Refresh:1; url=livros.php");
 if ($_SESSION['delmsg'] == "Deleted") {
   echo "<br>";
@@ -96,19 +101,8 @@ include 'header/header.php';
                 echo "<td>" . $dados['BookName']. "</td>";
                 echo "<td style='width: 30%;'>" . $dados['AuthorName']. "</td>";
                 echo "<td style='width: 15%;'>" . $dados['CategoryName']. "</td>";
-                echo "<td style='width: 20%;'>" . "<a href='edit_book.php?bookid=" . $dados['bookid'] . "'><button class='uk-button uk-button-primary' style='width: 95%;'><span uk-icon='icon: pencil'> </span> Editar</button>" . "<div style='height: 5px;'></div>" . "<a id='js-modal-confirm' href='#'><button class='uk-button uk-button-danger' style='width: 95%;'><span uk-icon='icon: trash'> </span> Eliminar</button></a>" . "</td>";
-                echo "<script>
-                  UIkit.util.on('#js-modal-confirm', 'click', function (e) {
-                    e.preventDefault();
-                    e.target.blur();
-                    UIkit.modal.confirm('Quer mesmo eliminar este livro?').then(function () {
-                      location.href = 'livros.php?del=" . $dados['bookid'] ."';
-                      console.log('Confirmed.')
-                    }, function () {
-                      console.log('Rejected.')
-                    });
-                  });</script>";
-                //Botoes DIFICULADE
+                echo "<td style='width: 20%;'>" . "<a href='edit_book.php?bookid=" . $dados['bookid'] . "' onclick='return checkDelete()' ><button class='uk-button uk-button-primary' style='width: 95%;'><span uk-icon='icon: pencil'> </span> Editar</button>" . "<div style='height: 5px;'></div>" . "<a id='js-modal-confirm' href='livros.php?del=" . $dados['bookid'] ."'  onclick='return checkDelete()' ><button class='uk-button uk-button-danger' style='width: 95%;'><span uk-icon='icon: trash'> </span> Eliminar</button></a>" . "</td>";
+                //Botoes DIFICULADE //botoes eliminavam ultimo, em vez de eliminar o clicado, agora está FIXED
                 echo "<td>" . " " . "</td>";
                 echo "</tr>";
                 $cnt += 1;

@@ -14,6 +14,16 @@ require '../config/config.php';
     <link rel='stylesheet' href='https://cdn.jsdelivr.net/npm/sweetalert2@9.8.2/dist/sweetalert2.min.css'>
     <script src="../js/uikit.js" charset="utf-8"></script>
     <script src="../js/uikit-icons.js" charset="utf-8"></script>
+    <script language="JavaScript" type="text/javascript">
+      function checkdev(){
+          return confirm('Quer mesmo devolver este livro?');
+      }
+    </script>
+    <script language="JavaScript" type="text/javascript">
+      function checkwarn(){
+          return confirm('Quer mesmo avisar o aluno?');
+      }
+    </script>
   </head>
   <?php
     //-----
@@ -24,12 +34,48 @@ require '../config/config.php';
     $sql = "UPDATE tblissuedbookdetails SET ReturnDate = '$today', ReturnStatus = 1 WHERE tblissuedbookdetails.id = $id";
     $consulta = mysqli_query($con, $sql);
     $_SESSION['devmsg'] = "Returned";
-    header("Refresh:1; url=pordev.php");
+    //header("Refresh:1; url=pordev.php");
     if ($_SESSION['devmsg'] == "Returned") {
       echo "<br>";
       echo '<script>let timerInterval
           swal.fire({
             title: "Livro Devolvido!",
+            icon: "success",
+            timer: 1000,
+            timerProgressBar: true,
+            onBeforeOpen: () => {
+              swal.showLoading()
+            },
+            onClose: () => {
+              clearInterval(timerInterval)
+            }
+          }).then((result) => {
+            /* Read more about handling dismissals below */
+            if (result.dismiss === swal.DismissReason.timer) {
+              console.log("I was closed by the timer")
+            }
+          })</script>';
+    }
+    }
+    //-----
+    if(isset($_GET['warn']))
+    {
+    $id = $_GET['warn'];
+    $name = $_GET['name'];
+    $isbn = $_GET['isbn'];
+    $sql = "SELECT email from tblissuedbookdetails JOIN tblstudents ON tblissuedbookdetails.StudentID = tblstudents.StudentId AND tblissuedbookdetails.StudentID = '$id' WHERE ReturnStatus = 0";
+    $consulta = mysqli_query($con, $sql);
+    $dados = mysqli_fetch_assoc($consulta);
+    $em = $dados['email'];
+    $_SESSION['warnmsg'] = "Warned";
+    //Enviar email de aviso
+    require_once '../config/warn.php';
+    header("Refresh:1; url=pordev.php");
+    if ($_SESSION['warnmsg'] == "Warned") {
+      echo "<br>";
+      echo '<script>let timerInterval
+          swal.fire({
+            title: "Aluno Avisado!",
             icon: "success",
             timer: 1000,
             timerProgressBar: true,
@@ -92,29 +138,28 @@ require '../config/config.php';
               }
               $cnt = 1;
               while( $dados = mysqli_fetch_assoc($consulta) ){
-                echo "<tr>";
+                $today = date('d/m/Y');
+                //converter as data do formato MM-DD-YY para DD/MM/YY
+                $IssuesDate = preg_replace("/(\d+)\D+(\d+)\D+(\d+)/", "$3/$2/$1", $dados['IssuesDate']);
+                //converter as data do formato MM-DD-YY para DD/MM/YY
+                $ExpectedDate = preg_replace("/(\d+)\D+(\d+)\D+(\d+)/", "$3/$2/$1", $dados['ExpectedDate']);
+
+                //Se a data de devolução for ultrapassada, a linha fica a vermelho e mostra um botao para avisar o aluno
+                if ($today > $ExpectedDate) {
+                  echo "<tr style='background-color: #f0506e6b;' >";
+                }
                 echo "<td>" . " " . "</td>";
                 echo "<td>" . $cnt . "</td>";
                 echo "<td>" . $dados['ISBNNumber'] . "</td>";
                 echo "<td>" . $dados['FullName'] . "<br>" . $dados['StudentID'] . "</td>";
-                //converter as data do formato MM-DD-YY para DD/MM/YY
-                $IssuesDate = preg_replace("/(\d+)\D+(\d+)\D+(\d+)/", "$3/$2/$1", $dados['IssuesDate']);
                 echo "<td>" . $IssuesDate . "</td>";
-                //converter as data do formato MM-DD-YY para DD/MM/YY
-                $ExpectedDate = preg_replace("/(\d+)\D+(\d+)\D+(\d+)/", "$3/$2/$1", $dados['ExpectedDate']);
                 echo "<td>" . $ExpectedDate .  "</td>";
-                echo "<td>" . "<a id='js-modal-confirm' href='#'><button class='uk-button uk-button-primary'><span uk-icon='icon: trash'> </span> Devolver</button></a>" . "</td>";
-                echo "<script>
-                  UIkit.util.on('#js-modal-confirm', 'click', function (e) {
-                    e.preventDefault();
-                    e.target.blur();
-                    UIkit.modal.confirm('Devolver livro?').then(function () {
-                      location.href = 'pordev.php?dev=" . $dados['id'] ."';
-                      console.log('Confirmed.')
-                    }, function () {
-                      console.log('Rejected.')
-                    });
-                  });</script>";
+                if ($today > $ExpectedDate) {
+                  echo "<td>" . "<a href='pordev.php?warn=" . $dados['StudentID'] . '&name=' . $dados['FullName'] . '&isbn=' . $dados['ISBNNumber'] . "' onclick='return checkwarn()'><button class='uk-button uk-button-danger' style='width: 75%';><span uk-icon='icon: warning'> </span> Avisar Aluno</button></a>" . "<div style='height: 5px;'></div>" . "<a href='pordev.php?dev=" . $dados['id'] . "' onclick='return checkdev()'><button class='uk-button uk-button-primary' style='width: 75%';><span uk-icon='icon: pull'></span> Devolver</button></a>" . "</td>";
+                }
+                else {
+                  echo "<td>" . "<a href='pordev.php?dev=" . $dados['id'] . "' onclick='return checkdev()'><button class='uk-button uk-button-primary' style='width: 75%';><span uk-icon='icon: pull'> </span> Devolver</button></a>" . "</td>";
+                }
                 echo "</tr>";
                 $cnt += 1;
               }
