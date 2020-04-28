@@ -47,7 +47,6 @@ require 'includes/form_handlers/register_handler.php';
           </div>
           <input class="uk-button uk-button-default uk-button-primary" type="submit" name="login_button" value="Login">
         </form>
-        <p><a href="#">Esqueceu-se da palavra-passe?</a></p>
         <p>Ainda não tens conta? <a href="register.php">Registar</a></p>
       </div>
       <img class="sideimg" src="img/auth.svg" alt="">

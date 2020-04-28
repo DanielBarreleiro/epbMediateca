@@ -93,7 +93,7 @@ require 'handlers/add_book.php';
           <button type="submit" name="add" class="uk-button uk-button-default uk-button-primary">Adicionar</button>
         </form>
       </div>
-      <!--<img class="sideimg" src="../img/books.svg" alt="">-->
+      <img class="sideimg" src="../img/addbook.png" alt="">
     </div>
   </body>
 </html>

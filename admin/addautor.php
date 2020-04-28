@@ -47,7 +47,7 @@ require 'handlers/add_autor.php';
           <button type="submit" name="add" class="uk-button uk-button-default uk-button-primary">Adicionar</button>
         </form>
       </div>
-      <!--<img class="sideimg" src="../img/books.svg" alt="">-->
+      <img class="sideimgw" src="../img/addautor.svg" alt="">
     </div>
   </body>
 </html>

@@ -37,9 +37,7 @@ require '../config/config.php';
           <img class="admindashico" src="../includes/icons/11-Content/02-Books/1024w/book-upload.png" alt="">
           <p>Requisitar</p>
           <?php
-          $result = mysqli_query($con, "SELECT * FROM tblissuedbookdetails");
-          $num_rows = mysqli_num_rows($result);
-          echo "<p>$num_rows</p>";
+          echo "<p> - </p>";
            ?>
         </a>
       </div>

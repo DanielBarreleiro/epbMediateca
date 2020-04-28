@@ -47,7 +47,7 @@ require 'handlers/add_cat.php';
           <button type="submit" name="add" class="uk-button uk-button-default uk-button-primary">Adicionar</button>
         </form>
       </div>
-      <!--<img class="sideimg" src="../img/books.svg" alt="">-->
+      <img class="sideimgw" src="../img/addcat.svg" alt="">
     </div>
   </body>
 </html>
