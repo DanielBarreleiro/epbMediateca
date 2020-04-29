@@ -1,6 +1,8 @@
 <?php
 require '../config/config.php';
 require 'handlers/req_book.php';
+if(isset($_SESSION['alogin']))
+{
 ?>
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
@@ -97,3 +99,9 @@ require 'handlers/req_book.php';
     </div>
   </body>
 </html>
+<?php
+}
+else {
+   include 'header/areturn.php';
+}
+?>

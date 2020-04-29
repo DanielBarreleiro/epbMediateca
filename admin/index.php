@@ -1,5 +1,7 @@
 <?php
 require '../config/config.php';
+if(isset($_SESSION['alogin']))
+{
 ?>
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
@@ -99,3 +101,9 @@ require '../config/config.php';
     </div>
   </body>
 </html>
+<?php
+}
+else {
+   include 'header/areturn.php';
+}
+?>

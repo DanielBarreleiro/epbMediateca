@@ -1,6 +1,8 @@
 <?php
 require '../config/config.php';
 require 'handlers/add_autor.php';
+if(isset($_SESSION['alogin']))
+{
 ?>
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
@@ -14,6 +16,8 @@ require 'handlers/add_autor.php';
     <link href="https://fonts.googleapis.com/css?family=Ubuntu&display=swap" rel="stylesheet">
     <script src="../js/uikit.js" charset="utf-8"></script>
     <script src="../js/uikit-icons.js" charset="utf-8"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9.8.2/dist/sweetalert2.all.min.js"></script>
+    <link rel='stylesheet' href='https://cdn.jsdelivr.net/npm/sweetalert2@9.8.2/dist/sweetalert2.min.css'>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
   </head>
   <?php include 'header/header.php' ?>
@@ -51,3 +55,9 @@ require 'handlers/add_autor.php';
     </div>
   </body>
 </html>
+<?php
+}
+else {
+   include 'header/areturn.php';
+}
+?>

@@ -2,7 +2,7 @@
 
 if(isset($_SESSION['login']))
 {
-  $sid = $_SESSION['stdid'];
+  $sid = $_SESSION['stdid']; //obter o nº do aluno
 ?>
 <nav class="uk-navbar-container" uk-navbar>
   <div class="uk-navbar-left">

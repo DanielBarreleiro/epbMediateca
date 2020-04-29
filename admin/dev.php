@@ -1,5 +1,7 @@
 <?php
 require '../config/config.php';
+if(isset($_SESSION['alogin']))
+{
 ?>
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
@@ -33,16 +35,6 @@ require '../config/config.php';
     <div class="zone uk-align-right">
       <hr class="top">
       <p class="p18" ><a href="../index.php">Painel Admin </a><span uk-icon="icon: chevron-double-right"></span> Devoluções</p>
-      <div class="">
-        <div class="uk-search uk-search-default">
-          <div class="uk-search">
-            <span uk-search-icon></span>
-            <input id="catInput" class="uk-search-input" type="search" placeholder="Pesquisar...">
-          </div>
-          <button type="submit" name="button" class="uk-button uk-button-primary" onclick="catSearch()" >Pesquisar</button>
-          <button type="submit" name="button" class="uk-button uk-button-secondary" onclick="catClear()" >Limpar Filtros</button>
-        </div>
-      </div>
     </div>
     <div class="">
       <table class="uk-table uk-table-striped uk-table-responsive uk-float-right" style="width: 86%;">
@@ -73,3 +65,9 @@ require '../config/config.php';
     </div>
   </body>
 </html>
+<?php
+}
+else {
+   include 'header/areturn.php';
+}
+?>

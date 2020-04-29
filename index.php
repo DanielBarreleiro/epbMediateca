@@ -172,27 +172,5 @@
       </div>
       <!--END Category-->
     </div>
-    <!--<div class="catalogo uk-align-right">
-      <hr class="top">
-      <p>CD'S / DVD'S</p>
-      <div class="uk-margin">
-        <form class="uk-search uk-search-default" method="post">
-          <div class="uk-search">
-            <span uk-search-icon></span>
-            <input class="uk-search-input" type="search" placeholder="Pesquisar...">
-          </div>
-          <button type="submit" name="button" class="uk-button uk-button-primary">Pesquisar</button>
-        </form>
-      </div>
-    </div>
-    <footer>
-      <div class="uk-container uk-container-small">
-        <a href="" class="uk-icon-button uk-margin-small-right" uk-icon="twitter"></a>
-        <a href="" class="uk-icon-button uk-margin-small-right" uk-icon="facebook"></a>
-        <a href="" class="uk-icon-button uk-margin-small-right" uk-icon="instagram"></a>
-        <a href="" class="uk-icon-button uk-margin-small-right" uk-icon="linkedin"></a>
-        <a href="" class="uk-icon-button uk-margin-small-right" uk-icon="youtube"></a>
-      </div>
-    </footer>-->
   </body>
 </html>

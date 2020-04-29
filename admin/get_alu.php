@@ -4,16 +4,22 @@ require '../config/config.php';
 if(!empty($_POST["StudentId"])) {
   $StudentId= strtoupper($_POST["StudentId"]);
 
-  $sql = "SELECT FullName FROM tblstudents WHERE StudentId='$StudentId'";
+  $sql = "SELECT FullName, email, phone FROM tblstudents WHERE StudentId='$StudentId'";
   $query = mysqli_query($con, $sql);
   $cnt=1;
   $num_rows = mysqli_num_rows($query);
   while ($row = mysqli_fetch_assoc($query)) {
     $FullName = $row['FullName'];
+    $email = $row['email'];
+    $phone = $row['phone'];
   }
   if($num_rows > 0)
   {
-    echo htmlentities($FullName);
+    echo htmlentities("Nome: " . $FullName);
+    echo "<br>";
+    echo htmlentities("Email: " . $email);
+    echo "<br>";
+    echo htmlentities("Tel: " . $phone);
     echo "<script>$('#submit').prop('disabled',false);</script>";
     echo "<script>$('#StudentId').addClass('uk-form-success');</script>";
   }
