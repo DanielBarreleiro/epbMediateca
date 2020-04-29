@@ -22,16 +22,6 @@
     <div class="cat uk-align-right">
       <hr class="top">
       <p class="p18" ><a href="../index.php">Categorias</a><span uk-icon="icon: chevron-double-right"></span> Construção Civil</p>
-      <div class="uk-margin">
-        <div class="uk-search uk-search-default">
-          <div class="uk-search">
-            <span uk-search-icon></span>
-            <input id="catInput" class="uk-search-input" type="search" placeholder="Pesquisar...">
-          </div>
-          <button type="submit" name="button" class="uk-button uk-button-primary" onclick="catSearch()" >Pesquisar</button>
-          <button type="submit" name="button" class="uk-button uk-button-secondary" onclick="catClear()" >Limpar Filtros</button>
-        </div>
-      </div>
     </div>
     <div class="">
       <table class="uk-table uk-table-striped uk-table-responsive uk-float-right" style="width: 84%;">

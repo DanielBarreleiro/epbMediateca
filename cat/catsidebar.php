@@ -12,7 +12,7 @@
           exit;
       }
       $cnt = 1;
-      while( $dados = mysqli_fetch_assoc($consulta) ){// falta colocar as linguas organizadas
+      while( $dados = mysqli_fetch_assoc($consulta) ){
         $dir = $dados['CategoryName'];
         $dir = str_replace(' ', '', $dir);
         echo "<li><a href='/cat/" . $dir . "'>" . $dados['CategoryName'] . "</a></li>";
