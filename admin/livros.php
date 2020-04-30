@@ -74,11 +74,13 @@ include 'header/header.php';
       <hr class="zonesidetop">
       <ul style="font-size: 90%;">
         <li><span uk-icon="icon: chevron-double-right"></span>Livros</li>
-        <li><a href="req.php">Requisitar</a></li>
+        <li><a href="posts.php">Notícias</a></li>
         <li><a href="dev.php">Devoluções</a></li>
         <li><a href="pordev.php">Por Devolver</a></li>
         <li><a href="reg_alu.php">Alunos Registados</a></li>
         <hr>
+        <li><a href="req.php">Requisitar</a></li>
+        <li><a href="cpost.php">Adicionar Notícia</a></li>
         <li><a href="addbook.php">Adiconar Livro</a></li>
         <li><a href="addautor.php">Adicionar Autor</a></li>
         <li><a href="addcat.php">Adicionar Categoria</a></li>

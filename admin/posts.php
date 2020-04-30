@@ -8,7 +8,6 @@ if(isset($_SESSION['alogin']))
   <head>
     <meta charset="utf-8">
     <title></title>
-    <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="../css/uikit.css" rel="stylesheet" />
 	  <link href="../css/master.css" rel="stylesheet" />
@@ -18,33 +17,53 @@ if(isset($_SESSION['alogin']))
     <script src="../js/uikit.js" charset="utf-8"></script>
     <script src="../js/uikit-icons.js" charset="utf-8"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script language="JavaScript" type="text/javascript">
+      function checkDelete(){
+          return confirm('Quer mesmo eliminar esta Notícia?');
+      }
+    </script>
   </head>
 <?php
+if(isset($_GET['del']))
+{
+$id = $_GET['del'];
+$sql = "DELETE FROM posts WHERE id=$id";
+$consulta = mysqli_query($con, $sql);
+$_SESSION['delmsg'] = 'Deleted';
+header("Refresh:1; url=posts.php");
+if ($_SESSION['delmsg'] == "Deleted") {
+  echo "<br>";
+  echo '<script>let timerInterval
+      swal.fire({
+        title: "Notícia Eliminada!",
+        icon: "success",
+        timer: 1000,
+        timerProgressBar: true,
+        onBeforeOpen: () => {
+          swal.showLoading()
+        },
+        onClose: () => {
+          clearInterval(timerInterval)
+        }
+      }).then((result) => {
+        /* Read more about handling dismissals below */
+        if (result.dismiss === swal.DismissReason.timer) {
+          console.log("I was closed by the timer")
+        }
+      })</script>';
+}
+}
 include 'header/header.php';
 ?>
   <body>
-    <script type="text/javascript">
-    // function for get student name
-    function getstudent() {
-      jQuery.ajax({
-      url: "get_alu.php",
-      data:'StudentId='+$("#StudentId").val(),
-      type: "POST",
-      success:function(data){
-      $("#get_student_name").html(data);
-      },
-      error:function (){}
-      });
-    }
-    </script>
     <div class="zonesidebar uk-align-left">
       <hr class="zonesidetop">
       <ul style="font-size: 90%;">
         <li><a href="livros.php">Livros</a></li>
-        <li><a href="posts.php">Notícias</a></li>
+        <li><span uk-icon="icon: chevron-double-right"></span>Notícias</li>
         <li><a href="dev.php">Devoluções</a></li>
         <li><a href="pordev.php">Por Devolver</a></li>
-        <li><span uk-icon="icon: chevron-double-right"></span>Alunos Registados</li>
+        <li><a href="reg_alu.php">Alunos Registados</a></li>
         <hr>
         <li><a href="req.php">Requisitar</a></li>
         <li><a href="cpost.php">Adicionar Notícia</a></li>
@@ -55,24 +74,14 @@ include 'header/header.php';
     </div>
     <div class="zone uk-align-right">
       <hr class="top">
-      <p class="p18" ><a href="../index.php">Painel Admin </a><span uk-icon="icon: chevron-double-right"></span> Alunos Registados</p>
-      <div class="">
-        <div class="uk-search uk-search-default">
-          <div class="uk-search">
-            <span uk-search-icon></span>
-            <input class="uk-search-input" type="search" placeholder="Nº Aluno" name="StudentId" id="StudentId" uk-tooltip="title: Ex: gpsi173670; pos: right">
-          </div>
-          <button type="submit" name="button" class="uk-button uk-button-primary" onclick="getstudent()">Pesquisar</button>
-        </div>
-        <span id="get_student_name" style="font-size:16px;"></span>
-      </div>
+      <p class="p18" ><a href="../index.php">Painel Admin </a><span uk-icon="icon: chevron-double-right"></span> Notícias</p>
     </div>
     <div class="">
-      <table class="uk-table uk-table-striped uk-table-responsive uk-float-right" style="width: 86%;">
-          <tr><td></td><td>#</td><td>Nº Aluno</td><td>Nome</td><td>Email</td><td>Nº Tel</td><td></td></tr>
+      <table class="uk-table uk-table-striped uk-table-responsive uk-float-right" id="tb" style="width: 86%;">
+          <tr><td></td><td>#</td><td>Título da notícia</td><td>Data</td><td>Likes</td><td>-  -</td><td></td></tr>
           <?php
               mysqli_set_charset($con,"utf8"); // resolve a questão dos acentos e cedilhas
-              $sql = "SELECT * FROM tblstudents";
+              $sql = "SELECT * from posts";
               $consulta = mysqli_query($con, $sql);
               if( !$consulta ){
                   echo "Erro ao realizar a consulta.";
@@ -83,10 +92,11 @@ include 'header/header.php';
                 echo "<tr>";
                 echo "<td>" . " " . "</td>";
                 echo "<td>" . $cnt . "</td>";
-                echo "<td>" . $dados['StudentId']. "</td>";
-                echo "<td>" . $dados['FullName']. "</td>";
-                echo "<td>" . $dados['email']. "</td>";
-                echo "<td>" . $dados['phone']. "</td>";
+                echo "<td>" . $dados['posttitle']. "</td>";
+                echo "<td>" . $dados['postdate']. "</td>";
+                echo "<td>" . $dados['likes']. "</td>";
+                echo "<td style='width: 20%;'>" . "<a id='js-modal-confirm' href='posts.php?del=" . $dados['id'] ."'  onclick='return checkDelete()' ><button class='uk-button uk-button-danger' style='width: 95%;'><span uk-icon='icon: trash'> </span> Eliminar</button></a>" . "</td>";
+                //Botoes DIFICULADE //botoes eliminavam ultimo, em vez de eliminar o clicado, agora está FIXED
                 echo "<td>" . " " . "</td>";
                 echo "</tr>";
                 $cnt += 1;

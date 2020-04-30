@@ -1,7 +1,6 @@
 <div class="catsidebar uk-align-left">
   <hr class="catsidetop">
   <ul>
-    <li>Catálogo</li>
     <?php
 
       mysqli_set_charset($con,"utf8");

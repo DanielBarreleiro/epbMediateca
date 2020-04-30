@@ -34,12 +34,14 @@ if(isset($_SESSION['alogin']))
            ?>
         </a>
       </div>
-      <div class="treq dashboardsec">
-        <a href="req.php">
-          <img class="admindashico" src="../includes/icons/11-Content/02-Books/1024w/book-upload.png" alt="">
-          <p>Requisitar</p>
+      <div class="tlivros dashboardsec">
+        <a href="posts.php">
+          <img class="admindashico" src="../includes/icons/11-Content/05-Newspapers/1024w/newspaper.png" alt="">
+          <p>Notícias</p>
           <?php
-          echo "<p> - </p>";
+          $result = mysqli_query($con, "SELECT * FROM posts");
+          $num_rows = mysqli_num_rows($result);
+          echo "<p>$num_rows</p>";
            ?>
         </a>
       </div>
@@ -77,22 +79,34 @@ if(isset($_SESSION['alogin']))
         </a>
       </div>
     </div>
+    <!--PARTE DE BAIXO-->
     <hr style="width: 85%;" class="uk-align-center">
     <div uk-grid class="admindash">
-      <div style="width: 30%;" class="tlivros"></div>
+      <div class="treq dashboardsec">
+        <a href="req.php">
+          <img class="admindashico" src="../includes/icons/11-Content/02-Books/1024w/book-upload.png" alt="">
+          <p>Requisitar</p>
+        </a>
+      </div>
+      <div class="treq dashboardsec">
+        <a href="cpost.php">
+          <img class="admindashico" src="../includes/icons/11-Content/03-Notes/1024w/notes-edit.png" alt="">
+          <p>Adiconar Notícia</p>
+        </a>
+      </div>
       <div class="treq dashboardsec">
         <a href="addbook.php">
           <img class="admindashico" src="../includes/icons/11-Content/02-Books/1024w/book-add.png" alt="">
           <p>Adiconar Livro</p>
         </a>
       </div>
-      <div class="tdev dashboardsec">
+      <div class="treq dashboardsec">
         <a href="addautor.php">
           <img class="admindashico" src="../includes/icons/11-Content/02-Books/1024w/book-author-add.png" alt="">
           <p>Adicionar Autor</p>
         </a>
       </div>
-      <div class="tpordev dashboardsec">
+      <div class="talu dashboardsec">
         <a href="addcat.php">
           <img class="admindashico" src="../includes/icons/16-Files-Folders/02-Folders/1024w/folder-add.png" alt="">
           <p>Adicionar Categoria</p>
