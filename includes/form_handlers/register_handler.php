@@ -60,10 +60,12 @@ if(isset($_POST['register_button'])) {
     array_push($error_array, "O nome tem de ter entre 2 e 60 caracteres<br>");
   }
 
-  $phone_check = mysqli_query($con, "SELECT phone FROM tblstudents WHERE phone='$phone'");
+  if (!empty($phone)){
+    $phone_check = mysqli_query($con, "SELECT phone FROM tblstudents WHERE phone='$phone'");
 
-  //conta o número de linhas
-  $num_rows = mysqli_num_rows($phone_check);
+    //conta o número de linhas
+    $num_rows = mysqli_num_rows($phone_check);
+  }
 
   if($num_rows > 0) {
     array_push($error_array, "Nº Telemóvel já em uso<br>");

@@ -11,6 +11,8 @@ require 'includes/form_handlers/login_handler.php';
     <link href="css/uikit.css" rel="stylesheet" />
 	  <link href="css/master.css" rel="stylesheet" />
     <link href="https://fonts.googleapis.com/css?family=Ubuntu&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9.8.2/dist/sweetalert2.all.min.js"></script>
+    <link rel='stylesheet' href='https://cdn.jsdelivr.net/npm/sweetalert2@9.8.2/dist/sweetalert2.min.css'>
     <script src="js/uikit.js" charset="utf-8"></script>
     <script src="js/uikit-icons.js" charset="utf-8"></script>
   </head>
@@ -73,11 +75,11 @@ require 'includes/form_handlers/login_handler.php';
           <div class="uk-margin">
             <div class="uk-inline">
                 <span class="uk-form-icon" uk-icon="icon: receiver"></span>
-                <input type="number" name="reg_phone" class="uk-input" type="text" placeholder="Nº Telemóvel" uk-tooltip="title: 912345678; pos: right" value="<?php
+                <input type="number" name="reg_phone" class="uk-input" type="text" placeholder="Nº Telemóvel" uk-tooltip="title: 912345678 (não obrigatório); pos: right" value="<?php
                 if (isset($_SESSION['reg_phone'])) {
                   echo $_SESSION['reg_phone'];
                 }
-                ?>" required>
+                ?>">
                 <br>
                 <?php if (in_array("Nº telemóvel já em uso<br>", $error_array)) {echo "Nº telemóvel já em uso<br>";}?>
             </div>
