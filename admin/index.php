@@ -85,7 +85,7 @@ if(isset($_SESSION['alogin']))
       <div class="treq dashboardsec">
         <a href="req.php">
           <img class="admindashico" src="../includes/icons/11-Content/02-Books/1024w/book-upload.png" alt="">
-          <p>Requisitar</p>
+          <p>Requisitar Livro</p>
         </a>
       </div>
       <div class="treq dashboardsec">
